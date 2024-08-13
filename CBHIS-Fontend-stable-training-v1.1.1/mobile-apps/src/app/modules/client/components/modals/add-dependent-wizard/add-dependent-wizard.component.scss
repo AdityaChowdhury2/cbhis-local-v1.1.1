@@ -1,0 +1,54 @@
+.select-wrapper-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+ion-content {
+  ion-row {
+    ion-col {
+      .custom-floating-label {
+        .content {
+          min-height: var(--input-height); /* Adjust height as needed */
+          max-height: var(--input-height); /* Adjust height as needed */
+        }
+
+        label {
+          top: -7px;
+        }
+      }
+
+      ion-select {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      ion-select::part(icon) {
+        opacity: 1;
+      }
+    }
+  }
+  //   ion-select::part(container) {
+  //   }
+}
+
+ion-footer {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  ion-toolbar {
+    padding-left: 0.5 !important;
+    padding-right: 0.5 !important;
+  }
+}
+
+// @media only screen and (min-width: 768px) and (min-height: 1200px) {
+//   :host {
+//     --height: 300px !important;
+//     --width: 400px !important;
+//   }
+// }
+
+ion-toggle::part(label) {
+  font-size: 0.75rem;
+}

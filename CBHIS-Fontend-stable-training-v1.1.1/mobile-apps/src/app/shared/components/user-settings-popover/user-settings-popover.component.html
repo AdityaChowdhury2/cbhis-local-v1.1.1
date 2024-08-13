@@ -1,0 +1,123 @@
+<ion-content class="ion-no-padding">
+  <ion-list style="background-color: var(--ion-color-hea)">
+    <div *ngIf="userName && designation" class="user-details" style="margin-top: 20px">
+      <h4 style="color: var(--ion-color-black)">{{ userName }}</h4>
+      <p style="color: var(--ion-color-gray)">{{ designation }}</p>
+    </div>
+    <!-- [routerLink]="['/client/change-password']" -->
+    <ion-item lines="full" mode="md" (click)="onChangePasswordClick()" style="cursor: pointer">
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-no-padding ion-align-items-center">
+          <ion-col class="ion-no-padding" size="2" style="display: flex; justify-content: center">
+            <ion-img src="assets/icon/profile-change-password.png" style="filter: var(--ion-color-image)"></ion-img>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="auto">
+            <ion-text style="font-size: 0.75rem">Shintja i pasiwedi <br />
+              <small>Change Password</small>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item mode="md" lines="none" style="cursor: pointer" (click)="logout()">
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-no-padding ion-align-items-center">
+          <ion-col class="ion-no-padding" size="2" style="display: flex; justify-content: center">
+            <ion-icon name="exit" color="dark"></ion-icon>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="auto">
+            <ion-text style="font-size: 0.75rem">Phuma <br />
+              <small>Log Out</small>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <!-- <div style="display: flex; width: 100%; border: 1px solid #ddd">
+      <button
+        (click)="changeLanguage()"
+        style="
+          display: flex;
+          background-color: white;
+          color: #000;
+          justify-content: center;
+          align-items: center;
+          column-gap: 5px;
+          width: 100%;
+          padding: 10px 0;
+          border-right: 1px solid #ddd;
+        "
+      >
+        <ion-text style="font-size: 0.75rem">English</ion-text>
+      </button>
+
+      <button
+        (click)="changeLanguage()"
+        style="
+          display: flex;
+          background-color: #ddd;
+          color: #000;
+          justify-content: center;
+          align-items: center;
+          column-gap: 5px;
+          width: 100%;
+          padding: 10px 0;
+          border-right: 1px solid #ddd;
+        "
+      >
+        <ion-text style="font-size: 0.75rem">Eswatini</ion-text>
+      </button>
+    </div> -->
+
+    <div style="display: flex; width: 100%">
+      <button (click)="changeTheme('light')" style="
+          display: flex;
+          background-color: var(--ion-color-primary);
+          color: #fff;
+          justify-content: center;
+          align-items: center;
+          column-gap: 5px;
+          width: 100%;
+          padding: 10px 0;
+          border-right: 1px solid #ddd;
+        ">
+        <ion-icon slot="start" name="sunny-outline"></ion-icon>
+        <ion-text style="font-size: 0.75rem">Light</ion-text>
+      </button>
+
+      <button (click)="changeTheme('dark')" style="
+          display: flex;
+          background-color: #071108;
+          color: #fff;
+          justify-content: center;
+          align-items: center;
+          column-gap: 5px;
+          width: 100%;
+          padding: 10px 0;
+          border-right: 1px solid #ddd;
+        ">
+        <ion-icon slot="start" name="moon-outline"></ion-icon>
+        <ion-text style="font-size: 0.75rem">Dark</ion-text>
+      </button>
+
+      <!-- <button
+        (click)="changeTheme('gray')"
+        style="
+          display: flex;
+          background-color: #6b7280;
+          color: #fff;
+          justify-content: center;
+          align-items: center;
+          column-gap: 5px;
+          width: 100%;
+          padding: 10px 0;
+        "
+      >
+        <ion-icon slot="start" name="contrast-outline"></ion-icon>
+        <ion-text style="font-size: 0.75rem">Gray</ion-text>
+      </button> -->
+    </div>
+  </ion-list>
+</ion-content>

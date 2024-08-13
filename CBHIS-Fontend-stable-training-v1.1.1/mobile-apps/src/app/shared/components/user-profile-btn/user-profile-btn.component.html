@@ -1,0 +1,53 @@
+<!-- User Profile Button -->
+<ion-button (click)="presentPopover($event)" style="display: flex; align-items: center;">
+  <ion-avatar slot="start">
+    <img height="25px" width="25px" alt="" src="/assets/icon/avatar.svg" />
+  </ion-avatar>
+  <!-- class="ion-hide-sm-down" -->
+  <div style="margin-left: 8px; display: flex; flex-direction: column;" class="ion-hide-sm-down">
+    <ion-label *ngIf="userName" style="margin: 0; font-size: 0.875rem; ">{{userName}}</ion-label>
+    <ion-label *ngIf="designation" style="margin: 0; font-size: 0.75rem; text-align: start;">{{designation}}</ion-label>
+  </div>
+  <ion-icon slot="end" name="chevron-down-outline"></ion-icon>
+</ion-button>
+
+<!-- Popover Onclick of user profile Button -->
+<!-- <ion-popover mode="ios" [isOpen]="isOpen" (didDismiss)="isOpen = false">
+  <ng-template> -->
+<!-- <ion-content class="ion-no-padding">
+      <ion-list>
+        <ion-item mode="md" [routerLink]="['/client/change-password']" (click)="closePopover()" lines="none"
+          style="cursor: pointer;">
+          <ion-icon slot="start" name="exit-outline"></ion-icon>
+          <ion-text style="font-size: 0.75rem;"> Change Password</ion-text>
+        </ion-item>
+        <ion-item mode="md" lines="none" style="cursor: pointer;" (click)="logout()">
+          <ion-icon slot="start" name="exit-outline"></ion-icon>
+          <ion-text style="font-size: 0.75rem;"> Log Out</ion-text>
+        </ion-item>
+
+
+        <div style="display: flex; width: 100%; ">
+          <button
+            style="display: flex; background-color: var(--ion-color-primary);color: #fff; justify-content: center; align-items: center; column-gap: 5px; width: 100%; padding: 10px 0; border-right: 1px solid #ddd;">
+            <ion-icon slot="start" name="sunny-outline"></ion-icon>
+            <ion-text style="font-size: 0.75rem;">Light</ion-text>
+          </button>
+          <button
+            style="display: flex; background-color: #071108; color: #fff; justify-content: center; align-items: center; column-gap: 5px; width: 100%; padding: 10px 0; border-right: 1px solid #ddd;">
+            <ion-icon slot="start" name="moon-outline"></ion-icon>
+            <ion-text style="font-size: 0.75rem;">Dark</ion-text>
+          </button>
+          <button
+            style="display: flex; background-color: #6b7280; color: #fff; justify-content: center; align-items: center; column-gap: 5px; width: 100%; padding: 10px 0;">
+            <ion-icon slot="start" name="contrast-outline"></ion-icon>
+            <ion-text style="font-size: 0.75rem;">Gray</ion-text>
+          </button>
+        </div>
+
+      </ion-list> -->
+<!-- </ion-content> -->
+<!-- </ng-template>
+</ion-popover> -->
+
+<!-- (click)="changeTheme('dark')" -->

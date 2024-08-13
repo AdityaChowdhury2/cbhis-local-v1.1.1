@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Source_Sans_3";
+  src: url("/fonts/Source_Sans_3/SourceSans3-VariableFont_wght.ttf")
+    format("truetype"); /* Adjust path accordingly */
+}
+
+html {
+  background: var(--bgColor) !important;
+  /* position: relative !important; */
+}
+.tooltip:before {
+  background: var(--borderColor);
+  color: var(--textColor);
+  margin-bottom: -5px;
+}
+
+body {
+  background: var(--bgColor);
+  font-family: "Source_Sans_3", sans-serif;
+}
+
+span {
+  display: inline-block;
+}
+
+/* Custom arrow icon select tag*/
+.appearance-class select {
+  background-image: url("/dropdown.svg");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 30px;
+}
+
+::placeholder {
+  color: #999;
+  /* color: #797979; */
+  font-size: 10px;
+  font-weight: 300;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+*::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--borderColor);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--blueColor);
+  background-clip: content-box;
+  color: #b5b9c2;
+}
+body[data-theme="cGray"] .tuso_logo {
+  filter: grayscale(100%);
+}
+/* *::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, var(--blueColor), var(--blueColor), var(--hotPinkColor));
+  background-clip: padding-box;
+} */
+
+@layer components {
+  select,
+  input,
+  textarea {
+    @apply !text-[11px] 2xl:!text-[13px] !text-placeHolderColor;
+  }
+
+  select option {
+    @apply !text-[11px] 2xl:!text-[13px] !text-textColor;
+  }
+
+  .default_option {
+    @apply !text-placeHolderColor !text-[11px] 2xl:!text-[14px];
+  }
+}
+.default_option {
+  @apply !text-placeHolderColor !text-[11px] 2xl:!text-[14px];
+}
+
+@layer components {
+  /* input element custom class */
+  h1 {
+    @apply text-[23px] 2xl:text-[25px] text-textColor font-bold;
+  }
+
+  h2 {
+    @apply text-[20px] 2xl:text-[22px] text-textColor font-semibold;
+  }
+
+  h3 {
+    @apply text-[17px] text-textColor 2xl:text-[19px] font-medium;
+  }
+
+  h4 {
+    @apply text-[15px] 2xl:text-[17px] text-textColor font-medium;
+  }
+
+  h5 {
+    @apply text-[13px] 2xl:text-[15px] text-grayColor font-normal;
+  }
+
+  p {
+    @apply text-[11px] 2xl:text-[13px] text-grayColor font-normal;
+  }
+  .normal_text {
+    @apply text-[11px] 2xl:text-[13px] text-textColor font-normal;
+  }
+
+  .input_label {
+    @apply text-grayTextColor leading-[125%] text-xs lg:!text-[12px] 2xl:!text-[15px] font-normal mb-[5px] 2xl:mb-[5px] ms-[2px] truncate;
+  }
+
+  .input_required {
+    @apply transform -translate-y-0.5 mx-1 text-redColor text-xs;
+  }
+
+  .custom_input {
+    @apply w-full relative rounded-lg px-3 2xl:px-4 box-border flex flex-row items-center justify-start border-[1px] border-borderColor bg-whiteColor placeholder:!text-placeHolderColor !text-textColor py-[9px] 2xl:py-[11px] placeholder:!text-[12px] 2xl:placeholder:!text-[14px] focus:border-[1px] focus:!border-blueColor focus:shadow-none outline-none focus:outline-none focus:ring-0 disabled:bg-disabledColor;
+  }
+
+  .default_option {
+    @apply !text-placeHolderColor !text-[11px] 2xl:!text-[14px];
+  }
+
+  .input_error {
+    @apply text-redColor leading-[125%] font-normal text-[10px] 2xl:text-[13px] mt-1 ms-[2px];
+  }
+  .login_btn {
+    @apply py-[6px] md:py-[8px] 2xl:py-[12px] text-white font-medium rounded-md bg-gradient-to-b from-btnColor1 to-btnColor2;
+  }
+
+  /* buttons */
+  .main_btn {
+    @apply flex items-center justify-center text-center gap-4 text-[11px] 2xl:text-[13px] h-[35px] rounded-lg font-normal bg-blueColor py-[7px] px-6 text-white hover:bg-blueHoverBgColor whitespace-nowrap;
+  }
+  /* buttons */
+  .cancel_btn {
+    @apply flex items-center justify-center text-center gap-4 text-[11px] 2xl:text-[13px] bg-grayColor py-[7px] px-6 rounded-lg text-white font-semibold hover:bg-grayColor whitespace-nowrap;
+  }
+
+  .back_btn {
+    @apply flex items-center justify-center gap-4 text-[11px] 2xl:text-[13px] bg-transparent border border-blueColor py-[7px] px-4 rounded-lg text-blueColor font-semibold hover:bg-blueTransparentColor whitespace-nowrap;
+  }
+
+  .badge_btn {
+    @apply items-center justify-center text-[11px] 2xl:text-[13px] text-white bg-primaryColor rounded-full font-bold inline-flex w-7 h-7 whitespace-nowrap;
+  }
+
+  .badge_btn_2 {
+    @apply flex items-center justify-center text-[11px] 2xl:text-[13px] bg-pinkColor text-hotPinkColor rounded-2xl py-[7px] px-6 font-bold whitespace-nowrap;
+  }
+
+  .outline_btn {
+    @apply flex text-[11px] 2xl:text-[13px] items-center justify-center text-center gap-4 py-[7px] px-6 border-[1px] border-blueColor rounded-lg text-blueColor font-semibold whitespace-nowrap;
+  }
+
+  /* title text */
+  /* every module title */
+  .heading {
+    @apply text-3xl font-bold;
+  }
+
+  .sub_heading {
+    @apply text-[20px] font-semibold;
+  }
+}
+.link {
+  @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default duration-300 font-medium;
+}
+.sidebar .active {
+  @apply bg-transparent !text-blueColor;
+}
+.navbar .active {
+  @apply bg-transparent !text-activeBlueColor;
+}
+.dropdownList .active {
+  @apply !bg-blueColor !text-white;
+}
+
+.sidebar .active {
+  @apply !bg-lightGrayColor;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--textColor) !important;
+  background-color: transparent !important;
+}
+.swal2-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.swal2-popup {
+  background-color: var(--bgColor) !important;
+  color: var(--textColor) !important;
+  border: 1px solid rgba(255, 255, 255, 0.281);
+}
+.swal2-success-fix,
+.swal2-success-circular-line-right,
+.swal2-success-circular-line-left {
+  background: transparent !important;
+}
+
+body[data-theme="cGray"] .body-background {
+  /* background-image: url("/gray-background-2.jpg"); */
+  background: #2b2b2b;
+}
+
+/* custom-select-input */
+.custom-select-input-color {
+  @apply border-borderColor bg-whiteColor placeholder:text-placeHolderColor text-textColor disabled:bg-disabledColor;
+}

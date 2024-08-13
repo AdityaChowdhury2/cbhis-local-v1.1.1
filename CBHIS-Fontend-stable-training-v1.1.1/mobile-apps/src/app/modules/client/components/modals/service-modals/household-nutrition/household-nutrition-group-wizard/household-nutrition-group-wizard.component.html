@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Lokuphetselene netekudla</ion-title>
+    <ion-title style="font-size: 0.625rem">Household Nutrition Group</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="service-cards">
+      <ion-col size="4" sizeSm="3" *ngFor="let service of children">
+        <ion-card class="service-card" (click)="openWizard(service)">
+          <img [src]="service.icon" alt="" />
+          <ion-label style="font-size: 0.688rem; line-height: 12px">{{ service.siSwati }} <br />
+            <p style="
+                font-size: 0.625rem;
+                font-weight: 300;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+                line-height: 12px;
+                margin-top: 5px;
+              ">
+              {{ service.title }}
+            </p>
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

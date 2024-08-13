@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kuvikela Ngemuva kwekutalwa</ion-title>
+    <ion-title style="font-size: 0.625rem">Postnatal Prevention</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <!-- <ion-col>
+          <ion-label>Preventative Service<span style="color: red">*</span></ion-label>
+          <ion-select formControlName="PreventativeServiceId" interface="popover" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let item of preventativeServices" [value]="item.Oid">{{
+              item.Description
+              }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['PreventativeServiceId'].invalid && form.controls['PreventativeServiceId'].touched) ||
+              (form.controls['PreventativeServiceId'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col> -->
+
+    <ion-item *ngFor="let option of preventativeServices; let i = index; let last = last">
+      <ion-toggle labelPlacement="end" justify="start" (ionChange)="handleSelectionChange($event, option.Oid)"
+        [checked]="selectedItems.includes(option.Oid)">{{ option.Description }}</ion-toggle>
+      <!-- <ion-button (click)="openPopover($event, i)" color="primary" fill="clear" size="small">
+          <ion-icon class="job-aid-icon" name="information-circle-outline"></ion-icon>
+        </ion-button> -->
+    </ion-item>
+  </form>
+</ion-content>
+<app-footer [off]="isDisable" (saveEvent)="onSubmit()" />

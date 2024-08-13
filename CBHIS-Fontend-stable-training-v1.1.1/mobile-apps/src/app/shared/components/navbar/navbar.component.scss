@@ -1,0 +1,32 @@
+.disable-click {
+  pointer-events: none;
+}
+
+.sm-hide {
+  display: none;
+}
+
+.md-hide {
+  display: block;
+}
+.open-menu-icon {
+  display: none;
+}
+.sm-hide-text {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .sm-hide {
+    display: flex;
+  }
+  .md-hide {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sm-hide-text {
+    display: block;
+  }
+}

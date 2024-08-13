@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-button class="hide-sm">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+
+      <ion-text>Create House Head</ion-text>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="login-page-card" style="contain: none; overflow: visible">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <ion-card-content class="ion-no-padding">
+        <ion-grid>
+          <ion-row class="ion-margin-top">
+            <ion-col>
+              <ion-label>First Name</ion-label>
+              <ion-input fill="outline" placeholder="Enter First Name" />
+            </ion-col>
+            <ion-col>
+              <ion-label>Surname</ion-label>
+              <ion-input fill="outline" placeholder="Enter text" />
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-margin-top">
+            <ion-col>
+              <ion-label>Date of Birth</ion-label>
+
+              <ion-datetime-button style="justify-content: start" datetime="datetime"> </ion-datetime-button>
+
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-datetime
+                    [showDefaultButtons]="true"
+                    presentation="date"
+                    id="datetime"
+                    style="border: 1px solid #00000020"
+                  />
+                </ng-template>
+              </ion-modal>
+            </ion-col>
+            <!-- </ion-row>
+        <ion-row class="ion-margin-top"> -->
+            <ion-col>
+              <ion-label>Designation</ion-label>
+              <ion-input fill="outline" placeholder="Enter text" />
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-margin-top">
+            <ion-col>
+              <ion-label>Address</ion-label>
+              <ion-input fill="outline" placeholder="Enter text" />
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-margin-top">
+            <ion-col>
+              <ion-label>Cellphone Number</ion-label>
+              <ion-item lines="none" class="custom-input">
+                <div class="contact-input">
+                  <ion-select toggleIcon="chevron-down-outline" placeholder="--Khetsa--">
+                    <!-- <ion-icon slot="start" name="call" aria-hidden=" true"></ion-icon> -->
+                    <ion-select-option *ngFor="let country of countryCodes" [value]="country.code">
+                      {{ this.getFlagEmoji(country.flag) }} ({{ country.code }})
+                    </ion-select-option>
+                  </ion-select>
+                  <!-- We can mask this phone number like  +1 (555) 257-8948-->
+                  <ion-input placeholder="Enter number" type="tel" />
+                </div>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-label>Sex</ion-label>
+              <ion-select toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--">
+                <ion-select-option *ngFor="let option of genderOptions" [value]="option.value">{{
+                  option.key
+                }}</ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-margin-top">
+            <ion-col>
+              <ion-label>Username</ion-label>
+              <ion-input fill="outline" placeholder="Enter text" />
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-margin-top">
+            <ion-col>
+              <ion-label>Password</ion-label>
+              <ion-input fill="outline" placeholder="Enter text" />
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-margin-top">
+            <ion-col>
+              <ion-label>Confirm Password</ion-label>
+              <ion-input fill="outline" placeholder="Enter text" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-button
+          expand="block"
+          class="ion-margin-top"
+          mode="ios"
+          style="text-transform: capitalize; /* width: 90%; */ margin: 30px 10px"
+          >Sign Up</ion-button
+        >
+        <!-- [routerLink]="['/search']" -->
+      </ion-card-content>
+    </form>
+  </ion-card>
+</ion-content>

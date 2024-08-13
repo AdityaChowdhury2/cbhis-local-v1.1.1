@@ -1,0 +1,34 @@
+<ion-footer class="ion-no-border">
+  <!-- <ion-toolbar style="padding: 0 10px; ">
+    <ion-button fill="outline" (click)="closeWizard()" color="primary" expand="block">Cancel</ion-button>
+    <ion-button color="primary" fill="solid" (click)="onSubmit()" expand="block">Save</ion-button>
+  </ion-toolbar> -->
+  <ion-toolbar style="padding: 0 10px">
+    <div style="display: flex; justify-content: space-between">
+      <button
+        *ngIf="!english"
+        style="display: inline-block; width: 48%"
+        fill="outline"
+        (click)="closeWizard()"
+        color="primary"
+        class="custom-btn-outline"
+      >
+        Hocisa <br />
+        <small>Cancel</small>
+      </button>
+
+      <button
+        *ngIf="!english"
+        style="display: inline-block; width: 48%"
+        class="custom-btn"
+        [disabled]="off"
+        color="primary"
+        fill="solid"
+        (click)="onSubmit()"
+      >
+        Londvolota emafayela<br />
+        <small>Save</small>
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

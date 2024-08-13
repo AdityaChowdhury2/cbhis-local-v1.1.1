@@ -1,0 +1,35 @@
+export interface HealthEducation {
+  rhmselfassesment?: string;
+  recapfrompreviousvisit?: string;
+  instruction?: string;
+  preventionofmothertochildtransmissionofhiv: number;
+  hivtestingandscreening: number;
+  artinitiation: number;
+  artrefils: number;
+  sexuallytransmittedinfections: number;
+  maleandfemalecondoms: number;
+  tbscreening: number;
+  tbdiagnosis: number;
+  hypertensionrefills: number;
+  hypertensionroutingscreening: number;
+  cancerscreening: number;
+  immunizationandgrowthmonitoring: number;
+  ancpncandfamilyplanning: number;
+  deliveryandnewborncare: number;
+  managementofchildhoodillness: number;
+  adolescentreproductivehealth: number;
+  treatmentofcommonailmentsandconditions: number;
+  accidentandinjuries: number;
+  accidentsandemergencies: number;
+  trauma: number;
+  obesityandphysicalinactivity: number;
+  unhealthyfeedinganddietarypractices: number;
+  tobaccosubstanceandalcoholabuse: number;
+  genderbasedviolence: number;
+  incomegeneratingprojects: number;
+  healtheducationforpregnantwoman: number;
+  infantfeeding: number;
+  servicesformenandboys: number;
+  clientid: number;
+  identifiedfamilyid: number;
+}

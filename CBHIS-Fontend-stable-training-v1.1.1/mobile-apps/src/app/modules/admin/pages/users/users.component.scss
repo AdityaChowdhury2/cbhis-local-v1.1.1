@@ -1,0 +1,23 @@
+.user-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table-header,
+.table-row {
+  border-bottom: 1px solid #ccc;
+}
+
+.table-row:last-child {
+  border-bottom: none !important;
+}
+
+.table-header {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+.table-row:hover {
+  background-color: #f1f1f1;
+}
+.table-row:last-child {
+  border-bottom: none;
+}

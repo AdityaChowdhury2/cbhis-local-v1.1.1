@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kuhlola kuhloba kwelikhaya</ion-title>
+    <ion-title style="font-size: 0.625rem">Environment Assessment</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col>
+          <ion-label class="label-bottom">Kuhlola kuhloba kwelikhaya</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">TB Environment Assessment</ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="TBEnvironmentalAssessmentId">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let item of tbEnvironmentAssessmentArray" [value]="item.Oid">{{
+              item.Description
+              }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label class="label-bottom">Kutiphilisa</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Occupation</ion-label>
+
+          <ion-textarea placeholder="Bhalisa indlela yekutiphilisa" formControlName="OthersObserved" fill="outline"
+            maxlength="500" />
+        </ion-col>
+      </ion-row>
+
+      <!-- <div class="custom-floating-label">
+        <label style="font-size: 1.063rem">TB Environment Assessment</label>
+        <div class="content" style="padding: 10px">
+          <ion-item
+            [lines]="last ? 'none' : ''"
+            *ngFor="let option of tbEnvironmentAssessmentArray; let i = index; let last = last"
+          >
+            <ion-toggle
+              labelPlacement="end"
+              justify="start"
+              (ionChange)="handleSelectionChange($event, option.Oid)"
+              [checked]="selectedItems.includes(option.Oid)"
+              >{{ option.Description }}</ion-toggle
+            >
+            <ion-button (click)="openPopover($event, i)" color="primary" fill="clear" size="small">
+              <ion-icon class="job-aid-icon" name="information-circle-outline"></ion-icon>
+            </ion-button> 
+      </ion-item>
+      </div>
+      </div> -->
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kuhlolwa kwetimphawu te TB</ion-title>
+    <ion-title style="font-size: 0.625rem">Symptom Screening</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <div>
+        <ion-label class="label-bottom">Timphawu te TB</ion-label>
+        <br />
+        <ion-label style="font-size: 0.625rem; font-weight: 500">TB Symptom</ion-label>
+
+        <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+          formControlName="TBSymptomId">
+          <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+          <ion-select-option *ngFor="let symptom of tbSymptoms" [value]="symptom.Oid">
+            {{ symptom.Description }}
+          </ion-select-option></ion-select>
+      </div>
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsSputumCollected">Kukhipha sikhwehlela<br />
+          <small>Is Sputum Collected.</small></ion-toggle>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsTBContact">Lohlangene nemuntfu lone TB<br />
+          <small>Is TB Contact.</small></ion-toggle>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsPresumptive">Lonetimphawu te TB<br />
+          <small>Is Presumptive.</small></ion-toggle>
+      </ion-item>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

@@ -1,0 +1,109 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Make losandza kubeleka</ion-title>
+    <ion-title style="font-size: 0.625rem">Postnatal</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form" *ngIf="!isChildVisible">
+    <ion-grid class="ion-padding-horizontal">
+      <div style="margin-top: 10px">
+        <ion-label class="label-bottom">Kopha kwekubeleka<span style="color: red">*</span></ion-label>
+        <br />
+        <ion-label style="font-size: 0.625rem; font-weight: 500"
+          >Postpartum Loss of Blood<span style="color: red">*</span></ion-label
+        >
+
+        <ion-select
+          interface="popover"
+          toggleIcon="chevron-down-outline"
+          fill="outline"
+          placeholder="--Khetsa--"
+          formControlName="PostpartumLossOfBlood"
+        >
+          <ion-select-option> --Khetsa--</ion-select-option>
+          <ion-select-option *ngFor="let item of PostpartumLossOfBloodArray" [value]="item.value">
+            {{ item.label }}
+          </ion-select-option></ion-select
+        >
+
+        <p
+          style="color: red; font-size: 0.75rem; margin: -1px"
+          *ngIf="
+            (form.controls['PostpartumLossOfBlood'].invalid && form.controls['PostpartumLossOfBlood'].touched) ||
+            (form.controls['PostpartumLossOfBlood'].invalid && isValid)
+          "
+        >
+          Required!
+        </p>
+      </div>
+
+      <div>
+        <ion-label class="label-bottom">Indzawo yekubelekela</ion-label>
+        <br />
+        <ion-label style="font-size: 0.625rem; font-weight: 500">Place Of Delivery</ion-label>
+
+        <ion-select
+          interface="popover"
+          toggleIcon="chevron-down-outline"
+          fill="outline"
+          placeholder="Indzawo yekubelekela"
+          formControlName="PlaceOfDelivery"
+        >
+          <ion-select-option> --Khetsa--</ion-select-option>
+          <ion-select-option *ngFor="let item of PlaceOfDeliveryArray" [value]="item.value">{{
+            item.label
+          }}</ion-select-option>
+        </ion-select>
+      </div>
+    </ion-grid>
+  </form>
+
+  <ion-grid *ngIf="isChildVisible">
+    <ion-row style="font-size: 0.813rem">
+      <ion-col size="7"> Kopha kwekubeleka:</ion-col>
+      <ion-col size="5"> {{ PostpartumLossOfBloodEnum[pncData?.PostPartumLossOfBlood] }} </ion-col>
+    </ion-row>
+    <ion-row style="font-size: 0.813rem">
+      <ion-col size="7"> Indzawo yekubelekela: </ion-col>
+      <ion-col size="5">{{ PlaceOfDeliveryEnum[pncData?.PlaceOfDelivery] }} </ion-col>
+
+      <ion-col>
+        <ion-button (click)="editHandler()">Edit</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="isChildVisible">
+    <ion-row class="service-cards">
+      <ion-col size="4" sizeSm="3" *ngFor="let service of children">
+        <ion-card class="service-card" (click)="openWizard(service)">
+          <img [src]="service.icon" alt="" />
+          <ion-label style="font-size: 0.688rem; line-height: 12px"
+            >{{ service.siSwati }} <br />
+            <p
+              style="
+                font-size: 0.625rem;
+                font-weight: 300;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+                line-height: 12px;
+                margin-top: 5px;
+              "
+            >
+              {{ service.title }}
+            </p>
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<app-footer (saveEvent)="onSubmit()" *ngIf="!isChildVisible" />

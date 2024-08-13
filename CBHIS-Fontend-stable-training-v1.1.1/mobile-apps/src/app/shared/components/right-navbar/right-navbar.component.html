@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-button class="hide-sm" (click)="navigateBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-transform: capitalize">{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openToast()">
+        <ion-icon slot="icon-only" name="time-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications"></ion-icon>
+        <!-- <ion-badge color="danger" style="
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 0.688rem;
+            padding: 2px;
+          ">12</ion-badge> -->
+      </ion-button>
+      <!-- user profile button -->
+      <app-user-profile-btn></app-user-profile-btn>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

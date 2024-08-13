@@ -1,0 +1,40 @@
+ion-content {
+  ion-grid {
+    cursor: auto;
+    ion-row {
+      ion-col {
+        .responsive-service-button {
+          display: flex;
+          justify-content: flex-start;
+        }
+        ion-card {
+          ion-list {
+            padding: 0;
+            ion-item::part(native) {
+              --padding-start: 0;
+              --inner-padding-end: 0;
+            }
+          }
+          ion-checkbox::part(label) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  ion-content {
+    ion-grid {
+      ion-row {
+        ion-col {
+          .responsive-service-button {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,189 @@
+ion-content {
+  ion-grid {
+    width: 90%;
+    margin: 0 auto;
+  }
+  //   ion-text {
+  //     margin-right: 10px;
+  //     font-size: 0.625rem;
+  //   }
+  //   ion-chip {
+  //     border-radius: 4px;
+  //     ion-label {
+  //       font-size: 0.625rem !important;
+  //     }
+  //     padding: 3px 10px;
+  //   }
+  //   ion-chip.selected {
+  //     background: var(--ion-color-primary);
+  //     color: #fff;
+  //   }
+  ion-item.custom-input::part(native) {
+    background-color: transparent;
+  }
+
+  ion-grid.container {
+    width: 90%;
+    margin: 0 auto;
+    ion-item::part(native) {
+      --padding-start: 0;
+      --inner-padding-end: 0;
+    }
+    ion-item-sliding {
+      // box-shadow: 0px 0px 5px var(--ion-box-shadow-color);
+      border: none;
+      // border-radius: 12px;
+      // background-color: var(--ion-color-primary-contrast);
+      ion-item {
+        background-color: var(--ion-color-primary-contrast);
+        border-radius: 12px;
+        // background: var(--ion-color-primary);
+        // box-shadow: 5px 5px 10px var(--ion-box-shadow-color);
+        ion-grid {
+          .flex-direction-responsive {
+            flex-direction: column;
+          }
+          background-color: var(--ion-color-primary-contrast);
+          .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            padding: 10px;
+            border-radius: 50%;
+            background: var(--ion-color-light);
+          }
+        }
+        p {
+          font-size: 0.75rem;
+        }
+      }
+    }
+    ion-item-options {
+      ion-item-option {
+        margin-left: 10px;
+        // background-color: var(--ion-color-primary);
+        color: var(--ion-color-light);
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        // padding: 0.5rem;
+        // margin: 0.5rem;
+      }
+    }
+  }
+}
+
+// ion-header {
+//   ion-toolbar {
+//     padding-top: 0 !important;
+//     padding-bottom: 0;
+//     ion-grid {
+//       ion-row {
+//         ion-buttons {
+//           display: flex;
+//           align-items: center;
+//         }
+//       }
+//     }
+//   }
+// }
+// ion-card {
+//   ion-text {
+//     font-size: 0.8rem;
+//     color: var(--ion-color-dark);
+//     font-weight: 500;
+//   }
+//   width: 95%;
+//   margin: 10px auto;
+//   border-radius: 8px;
+//   padding: 1rem;
+
+//   ion-list {
+//     ion-item::part(native) {
+//       --padding-start: 16px;
+//       background-color: var(--ion-item-background-color);
+//       padding-inline-end: 5px;
+//     }
+
+//     ion-item {
+//       border-radius: 8px;
+//       ion-icon {
+//         font-size: 1rem;
+//         margin-inline-end: 8px;
+//       }
+//       .dependents-badge {
+//         margin-right: 10px;
+//       }
+//       ion-chip {
+//         font-size: 0.6rem;
+//       }
+//       ion-label {
+//         .name {
+//           font-size: 0.75rem;
+//           font-weight: 600;
+//         }
+//         p {
+//           font-size: 0.75rem;
+//         }
+//       }
+//       ion-buttons {
+//         ion-button {
+//           ion-icon {
+//             font-size: 1rem;
+//             margin-inline-end: 0;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// ion-chip {
+//   background-color: var(--ion-item-background-color);
+//   color: var(--ion-color-dark);
+// }
+
+// ! Input Style
+ion-input.search-input {
+  border: 1px solid var(--ion-border-color);
+  padding: 0.25rem 1rem;
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+  width: 100%;
+  ion-button {
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    font-size: 0.688rem;
+  }
+}
+
+.sc-ion-input-md-h {
+  --highlight-height: 0px;
+}
+
+.attend-btn {
+  --padding-top: 6px;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --padding-bottom: 6px;
+  // TODO: Add a custom color in variable
+  --border-color: #329bfc;
+}
+
+@media screen and (min-width: 576px) {
+  ion-content {
+    ion-grid.container {
+      ion-item-sliding {
+        ion-item {
+          ion-grid {
+            .flex-direction-responsive {
+              flex-direction: row;
+            }
+          }
+        }
+      }
+    }
+  }
+}

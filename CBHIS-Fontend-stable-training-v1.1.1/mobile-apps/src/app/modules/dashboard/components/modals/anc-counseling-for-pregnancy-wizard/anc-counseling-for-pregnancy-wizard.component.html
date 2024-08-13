@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>ANC Counseling</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size='small'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-align-items-center ion-padding ion-margin-top">
+    <ion-text>Has Client been counseled ? </ion-text>
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" ios="thumbs-up" md="thumbs-up"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" ios="thumbs-down" md="thumbs-down"></ion-icon>
+    </ion-button>
+  </ion-row>
+
+  <ion-row class="ion-padding-horizontal">
+    <ion-text color="primary">
+      Book for an appointment
+    </ion-text>
+
+  </ion-row>
+</ion-content>
+
+<ion-footer class="ion-no-border ion-padding-horizontal">
+  <ion-toolbar>
+    <ion-button size="small" slot="end" fill="clear" color="primary" (click)="dismissModal()">Cancel</ion-button>
+    <ion-button size="small" slot="end" fill="solid" color="primary" (click)="dismissModal()">Save</ion-button>
+  </ion-toolbar>
+</ion-footer>

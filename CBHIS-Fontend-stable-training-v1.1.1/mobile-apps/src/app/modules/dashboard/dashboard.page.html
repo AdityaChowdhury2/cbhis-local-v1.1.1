@@ -1,0 +1,6 @@
+<ion-split-pane contentId="dashboard-content" when="sm">
+  <ion-menu contentId="dashboard-content" type="overlay" id="sidebar_menu" [ngClass]="isOpen ? 'menu_active': ''">
+    <app-left-sidebar-menu (navbarMenuButtonClick)="onLeftSidebarNavbarButtonClick()"></app-left-sidebar-menu>
+  </ion-menu>
+  <ion-router-outlet id="dashboard-content"></ion-router-outlet>
+</ion-split-pane>

@@ -1,0 +1,23 @@
+<app-left-sidebar (navbarButtonClick)="onNavbarMenuButtonClick()">
+  <ion-menu-toggle auto-hide="false">
+    <ion-item [routerLink]="['users']" routerLinkActive="active-link" button lines="none">
+      <ion-label>Users</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button [routerLink]="['education-levels']" routerLinkActive="active-link" lines="none">
+      <ion-label>Education Levels</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button [routerLink]="['occupations']" routerLinkActive="active-link" lines="none">
+      <ion-label>Occupations</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button [routerLink]="['zones']" routerLinkActive="active-link" lines="none">
+      <ion-label>Zones</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+
+</app-left-sidebar>

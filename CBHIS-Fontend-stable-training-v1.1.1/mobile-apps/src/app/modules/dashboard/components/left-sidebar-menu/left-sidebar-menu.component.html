@@ -1,0 +1,199 @@
+<app-left-sidebar (navbarButtonClick)="onNavbarMenuButtonClick()">
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button lines="none" (click)="openHealthEducationModal()">
+      <ion-label>Health education (1)</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+
+  <ion-item *ngIf="!(membersLength > 1)" button (click)="toggleMenu('AntenatalCareService')" lines="none">
+    <!-- <ion-icon slot="start" name="receipt-outline"></ion-icon> -->
+    <ion-icon name="chevron-down-outline" *ngIf="!nestedMenus['AntenatalCareService']" slot="end"></ion-icon>
+    <ion-icon name="chevron-up-outline" *ngIf="nestedMenus['AntenatalCareService']" slot="end"></ion-icon>
+    <ion-label>Antenatal care services </ion-label>
+  </ion-item>
+  <ion-menu-toggle auto-hide="false">
+    <ion-list *ngIf="nestedMenus['AntenatalCareService']" class="ion-margin-start ion-no-padding">
+      <ion-item button lines="none">
+        <ion-label>ANC Initiation</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>ANC Topics</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Education session for Pregnant Woman (1)</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Malaria preventive medication (0)</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button lines="none">
+      <ion-label>Family Planning (1)</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button lines="none">
+      <ion-label>Intervention for men and boys (0)</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+
+  <ion-item button (click)="toggleMenu('ChildHealth')" lines="none">
+    <ion-icon name="chevron-down-outline" *ngIf="!nestedMenus['ChildHealth']" slot="end"></ion-icon>
+    <ion-icon name="chevron-up-outline" *ngIf="nestedMenus['ChildHealth']" slot="end"></ion-icon>
+    <ion-label>Child Health (1)</ion-label>
+  </ion-item>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-list *ngIf="nestedMenus['ChildHealth']" class="ion-margin-start ion-no-padding">
+      <ion-item button lines="none">
+        <ion-label>Child Growth Monitoring (1)</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Immunization (0)</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button lines="none">
+      <ion-label>Postnatal </ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+
+  <ion-item button (click)="toggleMenu('HouseHoldNutrition')" lines="none">
+    <ion-icon name="chevron-down-outline" *ngIf="!nestedMenus['HouseHoldNutrition']" slot="end"></ion-icon>
+    <ion-icon name="chevron-up-outline" *ngIf="nestedMenus['HouseHoldNutrition']" slot="end"></ion-icon>
+    <ion-label>Household nutrition</ion-label>
+  </ion-item>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-list *ngIf="nestedMenus['HouseHoldNutrition']" class="ion-margin-start ion-no-padding">
+      <ion-item button lines="none">
+        <ion-label>Dietary diversity (1)</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Breastfeeding & complimentary (1)</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Minimum acceptable diet (1)</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-menu-toggle>
+
+  <ion-item button (click)="toggleMenu('HIVServices')" lines="none">
+    <ion-icon name="chevron-down-outline" *ngIf="!nestedMenus['HIVServices']" slot="end"></ion-icon>
+    <ion-icon name="chevron-up-outline" *ngIf="nestedMenus['HIVServices']" slot="end"></ion-icon>
+    <ion-label>HIV Services</ion-label>
+  </ion-item>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-list *ngIf="nestedMenus['HIVServices']" class="ion-margin-start ion-no-padding">
+      <ion-item button lines="none">
+        <ion-label>Counseling (1)</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Self-test</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Self-test usability</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Paeds HIV testing</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>HIV Services</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Medication side-effect</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>TB prevention</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Interruption in treatment</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Wellbeing</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-menu-toggle>
+
+  <ion-item button (click)="toggleMenu('TBServices')" lines="none">
+    <ion-icon name="chevron-down-outline" *ngIf="!nestedMenus['TBServices']" slot="end"></ion-icon>
+    <ion-icon name="chevron-up-outline" *ngIf="nestedMenus['TBServices']" slot="end"></ion-icon>
+    <ion-label>TB services</ion-label>
+  </ion-item>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-list *ngIf="nestedMenus['TBServices']" class="ion-margin-start ion-no-padding">
+      <ion-item button lines="none">
+        <ion-label>Infection control assessment</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Symptom screening</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Infection control measures</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-menu-toggle>
+
+  <ion-item button (click)="toggleMenu('MalariaService')" lines="none">
+    <ion-icon name="chevron-down-outline" *ngIf="!nestedMenus['MalariaService']" slot="end"></ion-icon>
+    <ion-icon name="chevron-up-outline" *ngIf="nestedMenus['MalariaService']" slot="end"></ion-icon>
+    <ion-label>Malaria</ion-label>
+  </ion-item>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-list *ngIf="nestedMenus['MalariaService']" class="ion-margin-start ion-no-padding">
+      <ion-item button lines="none">
+        <ion-label>Malaria prevention</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Media campaign</ion-label>
+      </ion-item>
+
+      <ion-item button lines="none">
+        <ion-label>Risk behaviors</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button lines="none">
+      <ion-label>Home Based Care</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button lines="none">
+      <ion-label>Non communicable diseases</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle auto-hide="false">
+    <ion-item button lines="none">
+      <ion-label>First aid provision</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+</app-left-sidebar>

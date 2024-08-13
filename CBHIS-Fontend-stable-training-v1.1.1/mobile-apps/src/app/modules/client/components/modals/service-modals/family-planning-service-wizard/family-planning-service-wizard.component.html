@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kuhlela Umndeni</ion-title>
+    <ion-title style="font-size: 0.625rem">Family Planning</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <div class="custom-floating-label" style="margin-bottom: 20px !important">
+        <label style="font-size: 1.063rem">Kulungela Kutetfwala</label>
+        <div class="content" style="padding: 10px">
+          <ion-item lines="none">
+            <ion-toggle formControlName="IsPlanningToBePregnant" labelPlacement="end" justify="start">Does client plan
+              to fall pregnant in next 6 months?</ion-toggle>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- <div>
+        <ion-label>Enter birth control on</ion-label>
+        <ion-select
+          interface="popover"
+          formControlName="FPMethodId"
+          toggleIcon="chevron-down-outline"
+          fill="outline"
+          placeholder="--Khetsa--"
+        >
+          <ion-select-option *ngFor="let option of usedBirthControlMethods" [value]="option.Oid">{{
+            option.Description
+          }}</ion-select-option>
+        </ion-select>
+        <p
+          style="color: red; font-size: 0.75rem; margin-top: -1px"
+          *ngIf="
+            (form.controls['FPMethodId'].invalid && form.controls['FPMethodId'].touched) ||
+            (form.controls['FPMethodId'].invalid && !isFormValid)
+          "
+        >
+          Required!
+        </p>
+      </div> -->
+
+      <div class="custom-floating-label">
+        <label style="font-size: 1.063rem">Tindlela tekuhlela umndeni</label>
+        <div class="content" style="padding: 10px">
+          <ion-item [lines]="last ? 'none' : ''"
+            *ngFor="let option of usedBirthControlMethods; let i = index; let last = last">
+            <ion-toggle labelPlacement="end" justify="start" (ionChange)="handleSelectionChange($event, option.Oid)"
+              [checked]="selectedItems.includes(option.Oid)">{{ option.Description }}</ion-toggle>
+            <!-- <ion-button (click)="openPopover($event, i)" color="primary" fill="clear" size="small">
+              <ion-icon class="job-aid-icon" name="information-circle-outline"></ion-icon>
+            </ion-button> -->
+          </ion-item>
+        </div>
+      </div>
+    </ion-grid>
+  </form>
+</ion-content>
+<app-footer [off]="isEnabled" (saveEvent)="onSubmit()" />

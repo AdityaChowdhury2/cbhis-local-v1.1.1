@@ -1,0 +1,26 @@
+ion-button {
+  text-transform: capitalize;
+  ion-avatar {
+    width: 100%;
+    max-height: 25px;
+    max-width: 25px;
+    min-width: 25px;
+    --border-radius: 10px;
+  }
+}
+
+ion-list {
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .button-native {
+      gap: 5px;
+    }
+    ion-button {
+      font-size: 0.75rem;
+      display: flex;
+      gap: 5px;
+    }
+  }
+}

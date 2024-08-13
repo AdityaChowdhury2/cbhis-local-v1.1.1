@@ -1,0 +1,75 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kukhokhelwa kwalabatetfwele</ion-title>
+    <ion-title style="font-size: 10px">ANC Counseling</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="ANCForm">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-item lines="none">
+        <ion-toggle formControlName="IsCounselled" labelPlacement="end" justify="start"
+          >Lokhokhelwe <br />
+          <small>Is Counselled?</small></ion-toggle
+        >
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-toggle formControlName="IsANCInitiated" labelPlacement="end" justify="start"
+          >Lobhalisele kuklinikhela kutetfwala <br />
+          <small>Is ANC Initiated?</small></ion-toggle
+        >
+      </ion-item>
+
+      <ion-item lines="none" style="margin-bottom: 8px">
+        <ion-toggle formControlName="IsMalariaDrugTaken" labelPlacement="end" justify="start"
+          >Lonikwe emaphilisi e Malaria <br />
+          <small>Is Malaria Drug Taken?</small></ion-toggle
+        >
+      </ion-item>
+
+      <ion-label class="label-bottom">Linani lekutsatsa umutsi weMalaria<span style="color: red">*</span></ion-label>
+      <br />
+      <ion-label style="font-size: 10px; font-weight: 500"
+        >Frequency of Malaria Therapy<span style="color: red">*</span></ion-label
+      >
+      <ion-select
+        interface="popover"
+        formControlName="FrequencyOfMalariaTherapy"
+        toggleIcon="chevron-down-outline"
+        fill="outline"
+        placeholder="--Khetsa--"
+      >
+        <ion-select-option *ngFor="let option of FrequencyOfMalariaTherapyOptions" [value]="option.value">{{
+          option.key
+        }}</ion-select-option>
+      </ion-select>
+      <p
+        style="color: red; font-size: 0.75rem; margin-top: -1px"
+        *ngIf="
+          (ANCForm.controls['FrequencyOfMalariaTherapy'].invalid &&
+            ANCForm.controls['FrequencyOfMalariaTherapy'].touched) ||
+          (ANCForm.controls['FrequencyOfMalariaTherapy'].invalid && isValid)
+        "
+      >
+        Required!
+      </p>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />
+<!-- <ion-footer class=" ion-no-border">
+  <ion-toolbar style="padding: 0 10px">
+    <ion-button size="small" slot="end" fill="clear" color="primary" (click)="dismissModal()">Cancel</ion-button>
+    <ion-button size="small" slot="end" fill="solid" color="primary" [disabled]="ANCForm.invalid"
+      (click)="onSubmit()">Save</ion-button>
+  </ion-toolbar>
+</ion-footer> -->

@@ -1,0 +1,67 @@
+<!-- header for add group service -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>{{ head?.FirstName }} {{ head?.LastName }}'s Simo Selidladla</ion-title>
+    <ion-title style="font-size: 0.625rem">{{ head?.FirstName }} {{ head?.LastName }}'s Household
+      Characteristics</ion-title>
+    <ion-buttons slot="end" (click)="closeWizard()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Group Service -->
+<ion-content>
+  <ion-grid *ngIf="contents[0]" class="ion-padding-horizontal environmental-health">
+    <!-- <ion-label class="responsive-semibold-text">Main Source of Drinking water</ion-label> -->
+    <div class="custom-floating-label">
+      <label style="font-size: 1.063rem">Umtfombo wemanti ekunatsa</label>
+      <div class="content" style="padding: 10px">
+        <ion-row>
+          <ion-col size="12" [sizeMd]="i % 2 === 0 ? '6.5' : '5.5'"
+            *ngFor="let sources of drinkingWaterSources; let i = index">
+            <ion-toggle labelPlacement="end" justify="start"
+              (ionChange)="handleSelectionChange($event, sources.OnlineDbOid, selectedDrinkingWaterSources)"
+              [checked]="selectedDrinkingWaterSources.includes(sources.OnlineDbOid)">{{ sources.Description
+              }}</ion-toggle>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <!-- <ion-label style="font-weight: 500; font-size: 1.2rem !important">Safe Water Use</ion-label> -->
+
+    <div class="custom-floating-label">
+      <label style="font-size: 1.063rem">Kunatsa emanti laphephile</label>
+      <div class="content" style="padding: 10px">
+        <ion-row>
+          <ion-col size="12" [sizeMd]="i % 2 === 0 ? '6.5' : '5.5'"
+            *ngFor="let sources of safeWaterSources; let i = index">
+            <ion-toggle labelPlacement="end" justify="start"
+              (ionChange)="handleSelectionChange($event, sources.OnlineDbOid, selectedSafeWaterSources)"
+              [checked]="selectedSafeWaterSources.includes(sources.OnlineDbOid)">{{ sources.Description }}</ion-toggle>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <!-- <ion-label style="font-weight: 500; font-size: 1.2rem !important; margin-top: 20px"
+      >Toilet Facilities & Waste Disposal</ion-label
+    > -->
+    <div class="custom-floating-label">
+      <label style="font-size: 1.063rem">Tindlu tangensense nekuhlanteka</label>
+      <div class="content" style="padding: 10px">
+        <ion-row>
+          <ion-col size="12" [sizeMd]="i % 2 === 0 ? '6.5' : '5.5'" *ngFor="let sources of washs; let i = index">
+            <ion-toggle labelPlacement="end" justify="start"
+              (ionChange)="handleSelectionChange($event, sources.OnlineDbOid, selectedWASHs)"
+              [checked]="selectedWASHs.includes(sources.OnlineDbOid)">{{ sources.Description }}</ion-toggle>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>
+
+<app-footer [off]="isDisabled" (saveEvent)="onSubmit()" />

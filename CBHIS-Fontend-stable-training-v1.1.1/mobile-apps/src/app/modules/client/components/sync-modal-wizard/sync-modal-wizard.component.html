@@ -1,0 +1,77 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Sync</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="service-cards">
+      <ion-col button size="6" sizeMd="4">
+        <ion-card
+          (click)="handleSync()"
+          style="background-color: var(--ion-item-service-card); border: 1px solid var(--ion-item-color-border)"
+          class="service-card"
+          class="animate__animated animate__fast animate__fadeInUp"
+        >
+          <div style="margin-top: -10px">
+            <img src="assets/icon/download-referance-data.png" alt="" />
+          </div>
+          <!-- <ion-card-header> -->
+          <ion-label class="ion-text-center responsive-semibold-text">Download Reference Data</ion-label>
+          <!-- </ion-card-header> -->
+        </ion-card>
+      </ion-col>
+      <ion-col button size="6" sizeMd="4">
+        <ion-card
+          (click)="handleAppointmentSync()"
+          class="service-card"
+          class="animate__animated animate__fast animate__fadeInUp"
+          style="background-color: var(--ion-item-service-card); border: 1px solid var(--ion-item-color-border)"
+        >
+          <div style="margin-top: -10px">
+            <img src="assets/icon/download-appoinments.png" alt="" />
+          </div>
+          <!-- <ion-card-header> -->
+          <ion-label class="ion-text-center responsive-semibold-text">Download Appointments</ion-label>
+          <!-- </ion-card-header> -->
+        </ion-card>
+      </ion-col>
+      <ion-col button size="6" sizeMd="4">
+        <ion-card
+          (click)="onSyncClick()"
+          class="service-card"
+          class="animate__animated animate__fast animate__fadeInUp"
+          style="background-color: var(--ion-item-service-card); border: 1px solid var(--ion-item-color-border)"
+        >
+          <div style="margin-top: -10px">
+            <img src="assets/icon/upload-capture-data.png" alt="" />
+          </div>
+          <!-- <ion-card-header> -->
+          <ion-label class="ion-text-center responsive-semibold-text">Upload Captured Data</ion-label>
+          <!-- </ion-card-header> -->
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-loading [isOpen]="isLookupSyncLoading" *ngIf="english" mode="ios" message="Syncing..."></ion-loading>
+  <ion-loading
+    [isOpen]="isLookupSyncLoading"
+    *ngIf="!english"
+    mode="ios"
+    message="Umshina usalandza emafayela"
+  ></ion-loading>
+
+  <ion-loading [isOpen]="isAppointmentLoading" mode="ios" message="Syncing..."></ion-loading>
+  <ion-loading
+    [isOpen]="isAppointmentLoading"
+    *ngIf="!english"
+    mode="ios"
+    message="Umshina usalandza emafayela"
+  ></ion-loading>
+</ion-content>

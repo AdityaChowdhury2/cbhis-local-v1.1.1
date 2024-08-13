@@ -1,0 +1,92 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kulandzelela kukhula kwemntfwana</ion-title>
+    <ion-title style="font-size: 0.625rem">Child Growth Monitoring</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="ChildGrowthMonitoringForm">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Kukalwa kwemkhono wentfwana<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">MAUC Status<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="MAUCStatus">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let item of MUCEnumOptionsArray" [value]="item.value">{{ item.label }}
+            </ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (ChildGrowthMonitoringForm.controls['MAUCStatus'].invalid &&
+                ChildGrowthMonitoringForm.controls['MAUCStatus'].touched) ||
+              (ChildGrowthMonitoringForm.controls['MAUCStatus'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Kulandzelela kukhula kwemntfwana<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Washing Nutrition<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select formControlName="WastingNutritionalOedem" interface="popover" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let item of WastingNutritionalOedemaEnumArray" [value]="item.value">{{
+              item.label
+              }}</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (ChildGrowthMonitoringForm.controls['WastingNutritionalOedem'].invalid &&
+                ChildGrowthMonitoringForm.controls['WastingNutritionalOedem'].touched) ||
+              (ChildGrowthMonitoringForm.controls['WastingNutritionalOedem'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Budze</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Height(cm)</ion-label>
+
+          <ion-input placeholder="Budze" formControlName="Height" type="number" fill="outline" />
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Sisindvo</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Weight(kg)</ion-label>
+
+          <ion-input placeholder="Sisindvo" formControlName="Weight" type="number" fill="outline" />
+        </ion-col>
+      </ion-row>
+
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsVitaminAGiven">
+          Lonikwe Vitamin A<br />
+          <small>Is vitamin A given?</small></ion-toggle>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsDewormingPillGiven">Lonikwe liphilisi
+          lekugoma<br />
+          <small>Is vitamin A given?</small></ion-toggle>
+      </ion-item>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

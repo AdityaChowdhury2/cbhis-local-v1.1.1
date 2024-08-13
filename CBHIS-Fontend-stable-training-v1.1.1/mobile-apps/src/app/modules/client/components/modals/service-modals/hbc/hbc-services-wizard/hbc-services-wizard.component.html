@@ -1,0 +1,23 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Tihlelo talabagulela ekhaya</ion-title>
+    <ion-title style="font-size: 0.625rem">HBC Service</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item [lines]="last ? 'none' : ''" *ngFor="let option of hbcServices; let i = index; let last = last">
+    <ion-toggle labelPlacement="end" justify="start" (ionChange)="handleSelectionChange($event, option.Oid)"
+      [checked]="selectedItems.includes(option.Oid)">{{ option.Description }}</ion-toggle>
+    <!-- <ion-button (click)="openPopover($event, i)" color="primary" fill="clear" size="small">
+              <ion-icon class="job-aid-icon" name="information-circle-outline"></ion-icon>
+            </ion-button> -->
+  </ion-item>
+</ion-content>
+<app-footer [off]="isDisable" (saveEvent)="onSubmit()" />

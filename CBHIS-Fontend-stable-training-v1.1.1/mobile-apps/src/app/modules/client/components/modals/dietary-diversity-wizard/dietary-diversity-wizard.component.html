@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kwehlukahlukana Kwekudla</ion-title>
+    <ion-title style="font-size: 0.625rem">Dietary Diversity</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form>
+    <!-- <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col>
+          <ion-label>Dietary Diversity<span style="color: red">*</span></ion-label>
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="DietaryDiversityId">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option [value]="item.Oid" *ngFor="let item of dietaryDiversityObjects">{{
+              item.Description
+              }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['DietaryDiversityId'].invalid && form.controls['DietaryDiversityId'].touched) ||
+              (form.controls['DietaryDiversityId'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+    <ion-item *ngFor="let item of dietaryDiversityObjects; let i = index; let last = last">
+      <ion-toggle labelPlacement="end" justify="start" (ionChange)="handleSelectionChange($event, item.Oid)"
+        [checked]="selectedItems.includes(item.Oid)">{{ item.Description }}</ion-toggle>
+      <!-- <ion-button (click)="openPopover($event, i)" color="primary" fill="clear" size="small">
+          <ion-icon class="job-aid-icon" name="information-circle-outline"></ion-icon>
+        </ion-button> -->
+    </ion-item>
+  </form>
+</ion-content>
+
+<app-footer [off]="isDisable" (saveEvent)="onSubmit()" />

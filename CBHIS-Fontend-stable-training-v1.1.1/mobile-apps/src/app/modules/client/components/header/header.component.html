@@ -1,0 +1,39 @@
+<!-- Common header for client interface -->
+<ion-header class="ion-no-border" style="background-color: var(--ion-color-header)">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="ion-align-items-center ion-justify-content-between">
+        <!-- Logo button with navigation to home page -->
+        <ion-col size="auto" style="display: flex; align-items: center">
+          <ion-buttons>
+            <ion-button [routerLink]="['/client/settings']">
+              <ion-img src="assets/logo/health-care-logo.png" alt="Logo" style="height: 40px; object-fit: contain" />
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col>
+          <p style="color: red; text-align: center; font-weight: 700;">Training App</p>
+        </ion-col>
+
+        <!-- Notification and user profile buttons at the end -->
+        <ion-col size="auto" class="order-3" style="display: flex; align-items: center">
+          <!-- <div class="language-parent">
+            <ion-icon name="language-outline"></ion-icon>
+            <select name="" id="" (change)="onLanguageChange($event)">
+              <option [value]="true">English</option>
+              <option [value]="false">siSwati</option>
+            </select>
+          </div> -->
+          <ion-buttons>
+            <!-- <ion-button>
+              <ion-icon slot="icon-only" name="notifications" />
+            </ion-button> -->
+
+            <!--User Profile Button -->
+            <app-user-profile-btn />
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>

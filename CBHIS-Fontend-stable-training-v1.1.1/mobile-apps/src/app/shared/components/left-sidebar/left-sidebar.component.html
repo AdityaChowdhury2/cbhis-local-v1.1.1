@@ -1,0 +1,9 @@
+<app-navbar (buttonClick)="onNavbarButtonClick()" />
+
+<!-- Have to add ion content -->
+<ion-content class="sidebar_menu">
+  <ion-list>
+    <ng-content></ng-content>
+  </ion-list>
+  <div style="height: 100px; background-color: transparent"></div>
+</ion-content>

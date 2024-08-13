@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kugomiswa kwebantfwana</ion-title>
+    <ion-title style="font-size: 0.625rem">Child Immunization</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form" *ngIf="!isChildrenShown">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="12">
+          <ion-label class="label-bottom">Kugonywa<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Immunization Status<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="ImmunizationStatus">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let status of immunizationStatusArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['ImmunizationStatus'].invalid && form.controls['ImmunizationStatus'].touched) ||
+              (form.controls['ImmunizationStatus'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <ion-grid *ngIf="isChildrenShown">
+    <ion-row style="font-size: 0.813rem">
+      <ion-col size="6"> Immunization Status: </ion-col>
+      <ion-col size="6">
+        {{ immunizationStatusEnum[immunizationData && immunizationData.ImmunizationStatus] }}
+      </ion-col>
+
+      <ion-col>
+        <ion-button (click)="editHandler()">Edit</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- TODO: ADD Adverse event -->
+  <ion-row class="service-cards" *ngIf="isChildrenShown">
+    <ion-col size="4" sizeSm="3" (click)="openWizard()">
+      <ion-card class="service-card">
+        <img src="../../../../../../../../assets/icon/service/child-health.png" alt="" />
+        <ion-label>Adverse Event</ion-label>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" *ngIf="!isChildrenShown" />

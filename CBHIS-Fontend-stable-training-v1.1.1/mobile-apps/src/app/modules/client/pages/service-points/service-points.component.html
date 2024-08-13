@@ -1,0 +1,78 @@
+<ion-content scrollY="true">
+  <ion-grid>
+    <ion-row style="padding: 10px 15px 0 5px">
+      <ion-col class="ion-no-padding">
+        <ion-text *ngIf="this.head$ | async as head"
+          style="font-size: 1.2rem; text-transform: capitalize; font-weight: 600; color: var(--ion-color-primary)">
+          {{ head.FirstName }} {{ head.LastName }}'s Buhlobo nenhloko yelidladla
+        </ion-text>
+        <br />
+
+        <ion-text *ngIf="this.head$ | async as head"
+          style="font-size: 0.7rem; text-transform: capitalize; font-weight: 400; color: var(--ion-color-primary)">
+          {{ head.FirstName }} {{ head.LastName }}'s Household
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card style="overflow: auto">
+          <ion-list style="min-width: 320px">
+            <ion-item *ngFor="let member of selectedMembers$ | async; let last = last; let i = index"
+              [lines]="last ? 'none' : 'full'">
+              <ion-grid style="background-color: var(--ion-item-light-card-bg)">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="5" style="font-size: 0.938rem; text-transform: capitalize; font-weight: 600">
+                    {{ member.FirstName }} {{ member.LastName }}
+                  </ion-col>
+                  <ion-col size="1.5" style="text-transform: capitalize; font-size: 0.938rem; font-weight: 600">
+                    <img [src]="getGenderImage(member.Sex)" alt="" style="width: 25px" />
+                  </ion-col>
+
+                  <ion-col size="3" sizeSm="3" sizeMd="2.4">
+                    <ion-text color="primary" class="bold-text" style="
+                        padding: 2px 10px;
+                        border-radius: 20px;
+                        background-color: #516ec020;
+                        font-size: 0.688rem;
+                        color: var(--ion-color-black);
+                      ">
+                      <span *ngIf="member?.IsFamilyHead"> Simo Selidladla </span>
+                      <span *ngIf="member.RelationalType">
+                        {{ getRelationType(+member.RelationalType) }}
+                      </span>
+                    </ion-text>
+                  </ion-col>
+
+                  <ion-col size="2.5" class="ion-text-center" style="display: flex; gap: 20px">
+                    <ion-img *ngIf="member.IsDisabled"
+                      style="width: 20px; object-fit: contain; filter: var(--ion-color-serviceImage)"
+                      src="assets/icon/disability.png" />
+
+                    <ion-img *ngIf="member.IsPregnant"
+                      style="width: 20px; object-fit: contain; filter: var(--ion-color-serviceImage)"
+                      src="assets/icon/pregnant-woman.png" />
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="service-cards">
+      <ion-col size="4" sizeSm="3" sizeMd="2.4" *ngFor="let item of serviceArray">
+        <ion-card class="service-card" (click)="openWizard(item)">
+          <img [src]="item.icon" alt="" />
+          <ion-label style="font-size: 0.75rem; line-height: 12px">{{ item.siSwati }} <br />
+
+            <p style="font-size: 0.625rem; font-weight: 300; padding: 0; margin: 0; text-align: center">{{ item.title }}
+            </p>
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

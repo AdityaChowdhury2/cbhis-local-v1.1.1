@@ -1,0 +1,152 @@
+<!-- Main content container vertical scroll false -->
+<ion-content scrollY="false" style="position: relative">
+  <ion-grid *ngIf="false">
+    <ion-row>
+      <!-- Column for Assignments card -->
+      <ion-col button size="6" sizeMd="3" (click)="onAppointmentClick()" style="height: 118px; width: 130px">
+        <ion-card class="service-card animate__animated animate__fast animate__fadeInUp"
+          style="background-color: var(--ion-item-service-card); border: 1px solid var(--ion-item-color-border)">
+          <div>
+            <img src="assets/icon/assignment.png" style="filter: var(--ion-color-serviceImage)" alt="" />
+          </div>
+          <ion-card-header>
+            <ion-card-title *ngIf="english" class="ion-text-center responsive-semibold-text"
+              style="color: var(--ion-color-black)">Community Services
+            </ion-card-title>
+
+            <ion-card-title class="ion-text-center responsive-semibold-text"
+              style="color: var(--ion-color-black)">Tihlelo tetemphilo yemmango
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Column for Sync card -->
+      <ion-col size="6" sizeMd="3" *ngIf="isDeviceOnline">
+        <ion-card style="background-color: var(--ion-item-service-card); border: 1px solid var(--ion-item-color-border)"
+          class="service-card animate__animated animate__fast animate__fadeInUp" (click)="handleSyncAll()">
+          <!-- <ion-card class="service-card" (click)="onSyncClick()"
+          class="animate__animated animate__fast animate__fadeInUp"> -->
+          <div>
+            <img style="object-fit: contain; filter: var(--ion-color-serviceImage)" src="assets/icon/sync.png" alt="" />
+          </div>
+          <ion-card-header>
+            <<<<<<< HEAD <ion-card-title *ngIf="english" class="ion-text-center responsive-semibold-text"
+              style="color: var(--ion-color-black)">Sync</ion-card-title>
+              <ion-card-title class="ion-text-center responsive-semibold-text"
+                style="color: var(--ion-color-black)">Landza emafayela</ion-card-title>
+              =======
+              <ion-card-title class="ion-text-center responsive-semibold-text"
+                style="color: var(--ion-color-black)">Sync</ion-card-title>
+              <p>Vunisa</p>
+              >>>>>>> af064279c494ffb404101942d9f4d02bed2618a3
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Column for Change password card -->
+      <ion-col size="6" sizeMd="3">
+        <ion-card style="background-color: var(--ion-item-service-card); border: 1px solid var(--ion-item-color-border)"
+          class="service-card animate__animated animate__fast animate__fadeInUp" (click)="onChangePasswordClick()">
+          <div>
+            <img style="object-fit: contain; filter: var(--ion-color-serviceImage)"
+              src="assets/icon/change-password.png" alt="" />
+          </div>
+          <ion-card-header>
+            <<<<<<< HEAD <ion-card-title *ngIf="english" class="ion-text-center responsive-semibold-text"
+              style="color: var(--ion-color-black)">
+              Change Password</ion-card-title>
+              <ion-card-title class="ion-text-center responsive-semibold-text" style="color: var(--ion-color-black)">
+                Shintja i pasiwedi</ion-card-title>
+              =======
+              <ion-card-title class="ion-text-center responsive-semibold-text" style="color: var(--ion-color-black)">
+                Change Password</ion-card-title>
+              <p>Shintja Iphasiwedi</p>
+              >>>>>>> af064279c494ffb404101942d9f4d02bed2618a3
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Column for logout Card -->
+      <ion-col size="6" sizeMd="3">
+        <ion-card style="background-color: var(--ion-item-service-card); border: 1px solid var(--ion-item-color-border)"
+          class="service-card animate__animated animate__fast animate__fadeInUp" (click)="logout()">
+          <div>
+            <img style="object-fit: contain; filter: var(--ion-color-serviceImage)" src="assets/icon/logout.png"
+              alt="" />
+          </div>
+          <ion-card-header>
+            <<<<<<< HEAD <ion-card-title *ngIf="english" class="ion-text-center responsive-semibold-text"
+              style="color: var(--ion-color-black)">Log Out</ion-card-title>
+              <ion-card-title class="ion-text-center responsive-semibold-text"
+                style="color: var(--ion-color-black)">Phuma</ion-card-title>
+              =======
+              <ion-card-title class="ion-text-center responsive-semibold-text" style="color: var(--ion-color-black)">Log
+                Out</ion-card-title>
+              <p>Phuma</p>
+              >>>>>>> af064279c494ffb404101942d9f4d02bed2618a3
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- New Code Start -->
+
+  <div class="service-container" *ngIf="true">
+    <button class="service1" (click)="onAppointmentClick()">
+      <img src="assets/icon/service/service_image.png" alt="" />
+
+      <div class="service-text">
+        <h1 style="font-size: 1.25rem">Tihlelo tetemphilo yemmango</h1>
+        <p>Community Services</p>
+      </div>
+    </button>
+
+    <div class="right-service-card">
+      <button class="service-card" (click)="handleSyncAll()">
+        <div class="service-image">
+          <img src="assets/icon/service/sync-image.png" alt="" />
+        </div>
+
+        <div class="service-text">
+          <h1>Landza emafayela</h1>
+          <p>Sync</p>
+        </div>
+      </button>
+
+      <button class="service-card" (click)="onChangePasswordClick()">
+        <div class="service-image">
+          <img src="assets/icon/service/change-password-image.png" alt="" />
+        </div>
+
+        <div class="service-text">
+          <h1>Shintja i pasiwedi</h1>
+          <p>Change Password</p>
+        </div>
+      </button>
+
+      <button class="service-card" (click)="logout()">
+        <div class="service-image">
+          <img src="assets/icon/service/logout-image.png" alt="" />
+        </div>
+
+        <div class="service-text">
+          <h1>Phuma</h1>
+          <p>Log Out</p>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="true" class="" style="padding: 10px; position: absolute; bottom: 2%; width: 100%; text-align: center">
+    <img src="assets/logo/country-logo.jpg" alt="" style="width: 110px; border-radius: 7px" />
+    <h1 style="font-size: 0.938rem; margin-top: -5px; margin-top: 10px">
+      Ministry of Health, Eswatini - All Rights Reserved
+    </h1>
+  </div>
+
+  <ion-loading [isOpen]="isLookupSyncLoading" *ngIf="english" mode="ios" message="Syncing...">
+  </ion-loading>
+  <ion-loading [isOpen]="isLookupSyncLoading" mode="ios" message="Umshina usalandza emafayela"></ion-loading>
+</ion-content>

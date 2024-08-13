@@ -1,0 +1,50 @@
+<app-right-navbar [title]="''"></app-right-navbar>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Education Levels</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div style="overflow: auto">
+              <div style="overflow-x: auto; min-width: 650px">
+                <ion-grid class="user-table">
+                  <ion-row class="ion-align-items-center table-header">
+                    <ion-col size="1">
+                      <ion-checkbox />
+                    </ion-col>
+                    <ion-col size="2">Name</ion-col>
+                    <ion-col size="4">Email</ion-col>
+                    <ion-col size="2">Phone</ion-col>
+                    <ion-col size="1.8">Role</ion-col>
+                    <ion-col size="1.2">Action</ion-col>
+                  </ion-row>
+
+                  <ion-row
+                    class="ion-align-items-center table-row"
+                    *ngFor="let array of array; let i = index"
+                  >
+                    <ion-col size="1">
+                      <ion-checkbox />
+                    </ion-col>
+                    <ion-col size="2">{{ array.name }}</ion-col>
+                    <ion-col size="4">{{ array.name }}</ion-col>
+                    <ion-col size="2">{{ array.name }}</ion-col>
+                    <ion-col size="1.8">{{ array.name }}</ion-col>
+                    <ion-col size="1.2">
+                      <ion-button fill="clear">
+                        <ion-icon slot="icon-only" size="small" name="pencil" />
+                      </ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

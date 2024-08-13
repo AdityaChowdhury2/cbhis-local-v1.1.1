@@ -1,0 +1,38 @@
+.custom-floating-label {
+  position: relative;
+  margin: 16px 0 0;
+  width: 100%;
+  border: 1px solid var(--ion-color-primary);
+  border-radius: 4px;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  // background: white;
+  font-size: 0.688rem;
+  label {
+    position: absolute;
+    top: -10px; /* Adjust as needed */
+    left: 12px;
+    background: var(--ion-color-light);
+    padding: 0 4px;
+    font-size: 0.688rem;
+    color: var(--ion-color-primary);
+  }
+  .content {
+    // height: var(--input-height); /* Adjust height as needed */
+    ion-chip {
+      background: none;
+      margin-bottom: 0;
+      padding-inline-start: 4px;
+      ion-avatar {
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      ion-label {
+        font-weight: 600;
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+}

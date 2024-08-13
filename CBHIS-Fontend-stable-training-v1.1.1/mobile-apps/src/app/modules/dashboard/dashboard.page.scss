@@ -1,0 +1,11 @@
+// .split-pane-visible {
+// .split-pane-side {
+//   min-width: 260px !important;
+//   max-width: 260px !important;
+// }
+
+// }
+
+ion-menu::part(container) {
+  --width: 210px;
+}

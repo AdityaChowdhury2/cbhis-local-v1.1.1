@@ -1,0 +1,47 @@
+<app-right-navbar [title]="'Zones'" />
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <div style="overflow: auto">
+              <div style="overflow-x: auto; min-width: 650px">
+                <ion-grid class="user-table">
+                  <ion-row class="ion-align-items-center table-header">
+                    <ion-col size="1">
+                      <ion-checkbox></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="2">ZoneId</ion-col>
+                    <ion-col size="7">Zone</ion-col>
+                    <ion-col size="2">Action</ion-col>
+                  </ion-row>
+
+                  <ion-row class="ion-align-items-center table-row"
+                    *ngFor="let zone of zones; let i = index; let last = last">
+                    <ion-col size="1">
+                      <ion-checkbox [(ngModel)]="zone.checked"></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="2">{{ zone.zoneId }}</ion-col>
+                    <ion-col size="7">{{ zone.name }}</ion-col>
+                    <ion-col size="2">
+                      <ion-button fill="clear">
+                        <ion-icon slot="icon-only" size="small" name="pencil"></ion-icon>
+                      </ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

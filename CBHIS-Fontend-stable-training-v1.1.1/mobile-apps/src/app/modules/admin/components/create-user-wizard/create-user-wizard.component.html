@@ -1,0 +1,161 @@
+<!-- Header For Create User-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create User</ion-title>
+    <ion-buttons slot="end" (click)="closeWizard()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Create User form  -->
+<ion-content>
+  <form [formGroup]="userForm" class="ion-padding-horizontal ion-padding-bottom">
+    <ion-grid>
+      <ion-row class="">
+        <ion-col size="6" sizeMd="6">
+          <ion-label>First Name<span style="color: red">*</span></ion-label>
+          <ion-input placeholder="Enter First Name" fill="outline" formControlName="firstname" />
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['firstname'].invalid && (userForm.controls['firstname'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="6" sizeMd="6">
+          <ion-label>Surname<span style="color: red">*</span></ion-label>
+          <ion-input placeholder="Enter First Name" fill="outline" formControlName="surname" />
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['surname'].invalid && (userForm.controls['surname'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="">
+        <ion-col size="6" sizeMd="6">
+          <ion-label>DOB<span style="color: red">*</span></ion-label>
+          <ion-item button="true" id="data-time" class="custom-input">
+            <ion-input formControlName="dob" />
+          </ion-item>
+          <ion-modal [keepContentsMounted]="true" trigger="data-time">
+            <ng-template>
+              <ion-datetime [showDefaultButtons]="true" presentation="date" id="datetime"
+                (ionChange)="changeDate($event)" style="border: 1px solid #00000020" />
+            </ng-template>
+          </ion-modal>
+          <ion-datetime-button style="justify-content: start; display: none" datetime="datetime"> </ion-datetime-button>
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['dob'].invalid && (userForm.controls['dob'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-label>Sex<span style="color: red">*</span></ion-label>
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="sex">
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="female">Female</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['sex'].invalid && (userForm.controls['sex'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="">
+        <ion-col size="6" sizeMd="6">
+          <ion-label>Designation<span style="color: red">*</span></ion-label>
+          <ion-input placeholder="Enter Designation" fill="outline" formControlName="designation" />
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['designation'].invalid && (userForm.controls['designation'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="6" sizeMd="6">
+          <ion-label>Contact Address<span style="color: red">*</span></ion-label>
+          <ion-input placeholder="Enter Contact Address " fill="outline" formControlName="contactaddress" />
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px" *ngIf="
+              userForm.controls['contactaddress'].invalid && (userForm.controls['contactaddress'].touched || isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="">
+        <ion-col size="6">
+          <ion-label>Country Code<span style="color: red">*</span></ion-label>
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="countrycode">
+            <ion-select-option value="+88">+88</ion-select-option>
+            <ion-select-option value="+264">+264</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['countrycode'].invalid && (userForm.controls['countrycode'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-label>Cellphone<span style="color: red">*</span></ion-label>
+          <ion-input placeholder="Enter Cellphone" fill="outline" formControlName="cellphone" />
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['cellphone'].invalid && (userForm.controls['cellphone'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="">
+        <ion-col size="6">
+          <ion-label>Username<span style="color: red">*</span></ion-label>
+          <ion-input placeholder="Enter username" fill="outline" formControlName="username" />
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['username'].invalid && (userForm.controls['username'].touched || isValid)">
+            <span *ngIf="userForm.controls['username'].errors?.['minlength'] ">username minimum 4 characters</span>
+            <span *ngIf="userForm.controls['username'].errors?.['required'] ">Required!</span>
+          </p>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-label>password<span style="color: red">*</span></ion-label>
+          <ion-input placeholder="Enter Password" fill="outline" formControlName="password" />
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].touched || isValid)">
+            <span *ngIf="userForm.controls['password'].errors?.['minlength'] ">Password Minimum 6 characters</span>
+            <span *ngIf="userForm.controls['password'].errors?.['required'] ">Required!</span>
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12">
+          <ion-label>Zone<span style="color: red">*</span></ion-label>
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="zoneid">
+            <ion-select-option value="1">Gulsan 1</ion-select-option>
+            <ion-select-option value="2">Baridhara</ion-select-option>
+            <ion-select-option value="3">Gulshan 2</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin-top: -1px"
+            *ngIf="userForm.controls['zoneid'].invalid && (userForm.controls['zoneid'].touched || isValid)">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar style="padding: 0 10px">
+    <ion-button slot="end" fill="clear" (click)="closeWizard()">Cancel</ion-button>
+    <ion-button slot="end" fill="solid" (click)="onSubmit()">Save</ion-button>
+  </ion-toolbar>
+</ion-footer>

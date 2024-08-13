@@ -1,0 +1,82 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>NCD History</ion-title>
+    <ion-title style="font-size: 0.625rem">Tifo letingatsatselwana</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Umphumela wekucwamingwa<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Screening Outcome<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="ScreeningOutcome">
+            <ion-select-option *ngFor="let status of ScreeningOutcomeEnum" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['ScreeningOutcome'].invalid && form.controls['ScreeningOutcome'].touched) ||
+              (form.controls['ScreeningOutcome'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Umphumela wekuhlolwa</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Test Outcome</ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="TestOutcome">
+            <ion-select-option *ngFor="let status of TestOutcomeEnum" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>Libito lesifo lesingatsatselwana<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">NCD Condition <span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="NCDConditionId">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let ncd of ncdConditions" [value]="ncd.Oid">
+              {{ ncd.Description }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['NCDConditionId'].invalid && form.controls['NCDConditionId'].touched) ||
+              (form.controls['NCDConditionId'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsTestConducted">Wahlowa yini? <br />
+          <small>Is test conducted?</small>
+        </ion-toggle>
+      </ion-item>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

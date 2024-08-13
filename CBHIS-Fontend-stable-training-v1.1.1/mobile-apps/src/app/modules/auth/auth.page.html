@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <ion-fab slot="fixed" vertical="top" horizontal="end">
+    <ion-fab-button size="small" color="light">
+      <ion-icon name="sunny-outline" *ngIf="light" color="dark" />
+      <ion-icon name="moon" *ngIf="dark" color="dark" />
+      <!-- <ion-icon name="contrast" *ngIf="gray" color="dark" /> -->
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button (click)="changeTheme('light')">
+        <ion-icon name="sunny" color="dark" />
+      </ion-fab-button>
+      <ion-fab-button (click)="changeTheme('dark')">
+        <ion-icon name="moon" color="dark" />
+      </ion-fab-button>
+      <!-- <ion-fab-button (click)="changeTheme('gray')">
+        <ion-icon name="contrast" color="dark" />
+      </ion-fab-button> -->
+    </ion-fab-list>
+  </ion-fab>
+
+  <!-- <ion-fab slot="fixed" vertical="top" horizontal="end" style="top: 70px">
+    <ion-fab-button size="small" color="light">
+      <ion-icon name="language"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button><b style="color: black">EN</b></ion-fab-button>
+      <ion-fab-button><b style="color: black">SW</b></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> -->
+  <ion-router-outlet id="auth-content" />
+</ion-content>

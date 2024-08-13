@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>kuvikela kubhebheteleka</ion-title>
+    <ion-title style="font-size: 0.625rem">Control Intervention</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col>
+          <ion-label class="label-bottom">kuvikela kubhebheteleka<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Control Intervention<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select formControlName="ControlInterventionId" interface="popover" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let controlIntervention of controlInterventionsOptions"
+              [value]="controlIntervention.Oid">
+              {{ controlIntervention.Description }}
+            </ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['ControlInterventionId'].invalid && form.controls['ControlInterventionId'].touched) ||
+              (form.controls['ControlInterventionId'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kuhlehlisa liphoyinti</ion-title>
+    <ion-title style="font-size: 10px">Reschedule</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-padding-horizontal">
+    <div class="ion-text-center" style="font-weight: 600; font-size: 16px; padding-top: 5px">
+      Hlela lusuku lolusha lweliphoyinti
+    </div>
+    <div class="ion-text-center" style="font-weight: 400; font-size: 12px; padding-bottom: 10px">
+      Select next appointment date
+    </div>
+    <ion-datetime presentation="date" [preferWheel]="true" color="red" (ionChange)="onDateChange($event)"
+      style="border: 1px solid #00000020" />
+  </ion-grid>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

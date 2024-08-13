@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kubamba lonaMalaria</ion-title>
+    <ion-title style="font-size: 0.625rem">Malaria Case Finding</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-label class="label-bottom">Uyitfole kuphi?</ion-label>
+      <br />
+      <ion-label style="font-size: 0.625rem; font-weight: 500">Exposed Where</ion-label>
+      <ion-input placeholder="Indzawo Yekuchayeka" formControlName="ExposedWhere" fill="outline" />
+
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsResidenceInMalariaEndemicArea">Lohlala
+          lakuvame Malaria khona? <br />
+          <small>Is residence in malaria endemic area?</small>
+        </ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsMalariaExposed">Losengotini ye Malaria<br />
+          <small>Is malaria exposed? </small>
+        </ion-toggle>
+      </ion-item>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

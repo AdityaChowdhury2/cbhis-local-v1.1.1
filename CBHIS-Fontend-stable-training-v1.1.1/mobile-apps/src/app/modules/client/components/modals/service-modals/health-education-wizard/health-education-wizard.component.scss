@@ -1,0 +1,14 @@
+ion-popover {
+  --width: 150px;
+}
+
+ion-toggle {
+  min-width: 220px;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+}
+
+ion-item::part(native) {
+  background-color: transparent;
+}

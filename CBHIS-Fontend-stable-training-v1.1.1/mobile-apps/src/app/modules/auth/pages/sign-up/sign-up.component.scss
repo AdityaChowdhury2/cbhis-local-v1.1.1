@@ -1,0 +1,102 @@
+ion-card {
+  margin: 0px 0;
+  padding: 0 16px;
+  box-shadow: none;
+  border-radius: 25px;
+  // width: 90%;
+  margin: auto;
+  max-width: 650px;
+  .login-page-image {
+    position: absolute;
+    left: calc(50% - 75px);
+    border-radius: 50%;
+    top: -50px;
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+  }
+  ion-card-header {
+    ion-card-title {
+      text-align: center;
+      font-size: 1rem;
+    }
+  }
+  ion-card-content {
+    ion-grid {
+      ion-row {
+        ion-col {
+          ion-label {
+            padding-left: 0.25rem;
+            padding-bottom: 0.25rem;
+          }
+          ion-select {
+            --border-width: 1px;
+            --border-radius: 5px;
+            --border-color: var(--ion-color-primary);
+          }
+          ion-input {
+            --border-width: 1px;
+            --border-radius: 5px;
+            --border-color: var(--ion-color-primary);
+            //   --border-radius: 15px;
+            //   --border-color: #c6c6c6;
+          }
+        }
+      }
+    }
+
+    .custom-input {
+      // --padding-start: 0.25rem;
+      // --inner-padding-end: 0.25rem;
+      // --border-width: 1px;
+      // --border-radius: 5px;
+      // --border-color: var(--ion-color-primary);
+      // border: none;
+      .contact-input {
+        padding: 0.25rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        ion-select {
+          ion-icon {
+            margin-right: 0.5rem;
+          }
+        }
+        ion-select::part(icon) {
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+
+    .has-focus {
+      --border-color: var(--highlight-color);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  ion-card {
+    padding: 32px;
+    .login-page-image {
+      top: -75px;
+      left: calc(50% - 62.5px);
+      width: 125px;
+      height: 125px;
+    }
+    ion-card-header {
+      margin-top: 20px;
+    }
+    ion-card-header {
+      ion-card-title {
+        text-align: center;
+        font-size: 1.5rem;
+      }
+    }
+    // ion-card-content {
+    // ion-input {
+    // min-height: 50px;
+    // font-size: 1rem;
+    // }
+    // }
+  }
+}

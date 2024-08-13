@@ -1,0 +1,241 @@
+<!-- header for add client modal -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Add Household Head</ion-title>
+    <ion-buttons slot="end" (click)="closeWizard()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- for adding houseHold Head -->
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row class="ion-text-center">
+        <ion-col>
+          <ion-text style="font-size: 0.813rem">
+            Fields marked by <span style="color: red"> * </span> are mandatory</ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>First Name<span style="color: red">*</span></ion-label>
+          <ion-input tabindex="0" style="text-transform: capitalize" formControlName="FirstName"
+            placeholder="Enter First Name" fill="outline" />
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['FirstName'].invalid && form.controls['FirstName'].touched) ||
+              (form.controls['FirstName'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Middle Name</ion-label>
+          <ion-input style="text-transform: capitalize" tabindex="0" formControlName="MiddleName"
+            placeholder="Enter Middle Name" fill="outline" />
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Surname<span style="color: red">*</span></ion-label>
+          <ion-input tabindex="0" style="text-transform: capitalize" formControlName="LastName"
+            placeholder="Enter Surname" fill="outline" />
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['LastName'].invalid && form.controls['LastName'].touched) ||
+              (form.controls['LastName'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Sex<span style="color: red">*</span></ion-label>
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="Sex">
+            <ion-select-option *ngFor="let sex of SexOptionsArray" [value]="sex.value">
+              {{ sex.label }}
+            </ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['Sex'].touched && form.controls['Sex'].invalid) ||
+              (form.controls['Sex'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Age</ion-label>
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" formControlName="Age"
+            placeholder="--Khetsa--">
+            <ion-select-option *ngFor="let age of ageOptionsArray" [value]="age.value">
+              {{ age.label }}
+            </ion-select-option>
+          </ion-select>
+          <!-- <ion-input tabindex="0" type="number" placeholder="Enter Age" fill="outline" formControlName="Age" /> -->
+        </ion-col>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Date of Birth<span style="color: red">*</span></ion-label>
+          <ion-input tabindex="0" button="true" id="date-of-birth-modal" fill="outline" formControlName="DOB"
+            placeholder="Select Date of Birth" button />
+          <ion-modal [keepContentsMounted]="true" trigger="date-of-birth-modal" class="ion-datetime-button-overlay">
+            <ng-template>
+              <ion-datetime [max]="maxDate" (ionChange)="onDateChange($event, 'DOB')" [showDefaultButtons]="true"
+                presentation="date" size="cover" style="border: 1px solid #00000020">
+              </ion-datetime>
+            </ng-template>
+          </ion-modal>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['DOB'].touched && form.controls['DOB'].invalid) ||
+              (form.controls['DOB'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Cellphone</ion-label>
+          <ion-input tabindex="0" formControlName="Cellphone" placeholder="Enter Cellphone Number" fill="outline" />
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Village<span style="color: red">*</span></ion-label>
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="VillageId" (ionChange)="ionselectChange($event)">
+            <ion-select-option *ngFor="let village of villages" [value]="village.Oid">
+              {{ village.Description }}
+            </ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['VillageId'].touched && form.controls['VillageId'].invalid) ||
+              (form.controls['VillageId'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Marital Status<span style="color: red">*</span></ion-label>
+          <ion-select formControlName="MaritalStatus" interface="popover" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="--Khetsa--">
+            <ion-select-option *ngFor="let status of MaritalStatusOptionsArray" [value]="status.value">
+              {{ status.label }}
+            </ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['MaritalStatus'].invalid && form.controls['MaritalStatus'].touched) ||
+              (form.controls['MaritalStatus'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Occupation</ion-label>
+          <ion-input tabindex="0" formControlName="Occupation" placeholder="Bhalisa indlela yekutiphilisa"
+            fill="outline" />
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label>Education Level<span style="color: red">*</span></ion-label>
+          <ion-select interface="popover" formControlName="EducationLevel" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="Select Education">
+            <ion-select-option *ngFor="let level of educationLevelOptionsArray" [value]="level.value">{{
+              level.label
+              }}</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['EducationLevel'].invalid && form.controls['EducationLevel'].touched) ||
+              (form.controls['EducationLevel'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label>PIN<span style="color: red">*</span></ion-label>
+          <ion-input tabindex="0" formControlName="PIN" placeholder="Enter Pin" fill="outline" [style]="
+              isDisabled
+                ? 'pointer-events: none; opacity: 0.4; background-color: var(--ion-item-disabled-background);'
+                : ''
+            " />
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['PIN'].invalid && form.controls['PIN'].touched) ||
+              (form.controls['PIN'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-toggle formControlName="HasBirthCertificate" labelPlacement="end">Have a birth certificate?</ion-toggle>
+        </ion-col>
+
+        <ion-col>
+          <ion-toggle [formControl]="haveNoPin" (ionChange)="onHaveNoPinChange()" labelPlacement="end">Don't have
+            Pin?</ion-toggle>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class=" ">
+          <ion-toggle formControlName="IsDisabled" color="medium" labelPlacement="end">Is disabled?</ion-toggle>
+        </ion-col>
+
+        <ion-col>
+          <ion-toggle [formControl]="isForeigner" color="medium" (ionChange)="onIsForeignerChange()"
+            labelPlacement="end">Is foreigner?</ion-toggle>
+        </ion-col>
+
+        <!-- <ion-col>
+          <ion-toggle [formControl]="isForeigner" (ionChange)="onIsForeignerChange()" labelPlacement="end"
+            >Is pregnant?</ion-toggle
+          >
+        </ion-col>
+
+        <ion-col>
+          <ion-toggle [formControl]="isForeigner" (ionChange)="onIsForeignerChange()" labelPlacement="end"
+            >If age is 18 and above – Does this person have a National ID?</ion-toggle
+          >
+        </ion-col> -->
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12">
+          <ion-toggle formControlName="IsDeceased" labelPlacement="end">Is deceased?</ion-toggle>
+        </ion-col>
+
+        <ion-col *ngIf="showDateDeceased" size="12">
+          <ion-label>Deceased Date</ion-label>
+          <ion-input tabindex="0" button="true" id="date-modal" class="custom-input" formControlName="DateDeceased"
+            fill="outline" placeholder="Select Date Of Deceased" />
+          <ion-modal [keepContentsMounted]="true" trigger="date-modal" class="ion-datetime-button-overlay"
+            style="--backdrop-opacity: 0.1">
+            <ng-template>
+              <ion-datetime (ionChange)="onDateChange($event, 'DateDeceased')" [showDefaultButtons]="true"
+                presentation="date" size="cover" style="border: 1px solid #00000020">
+              </ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

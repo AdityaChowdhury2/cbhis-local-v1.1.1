@@ -1,0 +1,153 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Kuvikelwa kwaMalaria</ion-title>
+    <ion-title style="font-size: 0.625rem">Malaria Prevention</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Kufutfwa kwetindlu ngemutsi We Malaria<span
+              style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">ISR<span style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" formControlName="ISR" fill="outline"
+            placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let isr of ISROptionsArray" [value]="isr.value">{{
+              isr.label
+              }}</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['ISR'].invalid && form.controls['ISR'].touched) ||
+              (form.controls['ISR'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Lowamukelisa ema-nethi eMalaria<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">ISR Provider<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" formControlName="ISRProvider" toggleIcon="chevron-down-outline" fill="outline"
+            placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let provider of ISRProviderOptionsArray" [value]="provider.value">{{
+              provider.label
+              }}</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['ISRProvider'].invalid && form.controls['ISRProvider'].touched) ||
+              (form.controls['ISRProvider'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Linani lema nethi eMalaria</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Number of ITN</ion-label>
+
+          <ion-select interface="popover" formControlName="NumberOfITN" toggleIcon="chevron-down-outline" fill="outline"
+            placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let option of NumberOfITNOptionsArray" [value]="option.value">{{
+              option.label
+              }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Tihlelo tekufundzisa sive ngeMalaria</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Malaria Campaign Medium</ion-label>
+
+          <ion-select interface="popover" formControlName="MalariaCampaignMedium" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let medium of MalariaCampaignOptionsArray" [value]="medium.value">{{
+              medium.label
+              }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Tihlelo tekufundzisa sive ngeMalaria</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Last Net Used</ion-label>
+
+          <ion-select interface="popover" formControlName="LastNetWasTreated" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let option of LastNetWasTreatedOptions" [value]="option.value">{{
+              option.label
+              }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Malaria Camp</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">--</ion-label>
+          <ion-select interface="popover" formControlName="MalariaCampaign" toggleIcon="chevron-down-outline"
+            fill="outline" placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let camp of MalariaCampaignOptionsArray" [value]="camp.value">{{
+              camp.label
+              }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-label class="label-bottom">Iminyaka/tinyanga te nethi</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Max Age of ITN</ion-label>
+
+          <ion-select interface="popover" formControlName="MaxAgeOfITN" toggleIcon="chevron-down-outline" fill="outline"
+            placeholder="--Khetsa--">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let option of MaxAgeOfITNOptions" [value]="option.value">{{
+              option.label
+              }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item lines="none">
+            <ion-toggle labelPlacement="end" formControlName="HasNetBeenTreated" justify="start">Yake yavusetelwa butsi
+              yini le net <br />
+              <small>Has net been treated</small>
+            </ion-toggle>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-toggle labelPlacement="end" formControlName="IsITNObserved" justify="start">Ikhona vele yini? <br />
+              <small>Is ITN observed?</small></ion-toggle>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-toggle labelPlacement="end" formControlName="HasITN" justify="start">Yake yavusetelwa butsi yini?
+              <br />
+              <small>Has ITN?</small>
+            </ion-toggle>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

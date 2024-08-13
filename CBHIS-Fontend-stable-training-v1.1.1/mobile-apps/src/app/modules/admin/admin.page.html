@@ -1,0 +1,14 @@
+<ion-split-pane contentId="admin-dashboard-content" when="sm">
+  <ion-menu
+    contentId="admin-dashboard-content"
+    type="overlay"
+    id="admin_menu"
+    [ngClass]="isOpen ? 'menu_active': ''"
+  >
+    <app-admin-menu
+      (navbarMenuButtonClick)="onLeftSidebarNavbarButtonClick()"
+    ></app-admin-menu>
+  </ion-menu>
+  <!-- Ion router outlet -->
+  <ion-router-outlet id="admin-dashboard-content"> </ion-router-outlet>
+</ion-split-pane>

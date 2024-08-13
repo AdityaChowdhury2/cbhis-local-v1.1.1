@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Tifundvo teku-Klinikha kwalabatetfwele</ion-title>
+    <ion-title style="font-size: 10px">ANC Topics</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="options?.length">
+  <div
+    *ngIf="selectedANCTopics?.length"
+    class="ion-padding"
+    style="background-color: rgba(91, 228, 37, 0.1); border: 1px solid rgb(91, 228, 37); font-size: small"
+  >
+    <ion-text>{{ selectedANCTopics.length }} training conducted</ion-text>
+  </div>
+  <ion-item [lines]="last ? 'none' : ''" *ngFor="let topic of options; let i = index; let last = last">
+    <ion-toggle
+      labelPlacement="end"
+      justify="start"
+      (ionChange)="handleSelectionChange($event, topic.Oid)"
+      [checked]="selectedANCTopics.includes(topic.Oid)"
+      >{{ topic?.Description }}</ion-toggle
+    >
+    <ion-button (click)="openPopover($event, i)" color="primary" fill="clear" size="small">
+      <ion-icon class="job-aid-icon" name="information-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-content>
+
+<app-footer [off]="isDisable" (saveEvent)="onSubmit()" />

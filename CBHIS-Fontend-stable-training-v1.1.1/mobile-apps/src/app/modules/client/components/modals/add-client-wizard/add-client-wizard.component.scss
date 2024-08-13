@@ -1,0 +1,40 @@
+ion-content {
+  ion-grid {
+    ion-row {
+      ion-card {
+        .card-content-md {
+          padding-inline-start: 8px;
+          padding-top: 4px;
+          padding-bottom: 4px;
+        }
+      }
+      ion-col {
+        ion-checkbox {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .health-education {
+    ion-item::part(native) {
+      max-height: var(--input-height);
+      min-height: var(--input-height);
+    }
+    ion-item {
+      ion-button {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  ion-toggle .toggle-icon::part(track) {
+    background-color: red !important;
+  }
+}
+
+// ion-modal {
+//   ion-datetime {
+//     width: 320px;
+//     min-height: 320px;
+//   }
+// }

@@ -1,0 +1,33 @@
+<!-- header for add zone modal -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Zone</ion-title>
+    <ion-buttons slot="end" (click)="closeWizard()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close" size='small'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding-horizontal">
+  <form [formGroup]="zoneform">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Zone Name*</ion-label>
+          <ion-input formControlName="zonename" placeholder="Enter zone name" fill="outline" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar style="padding: 0 10px;">
+    <ion-button size="small" slot="end" fill="solid" (click)="save()">Save</ion-button>
+  </ion-toolbar>
+</ion-footer>

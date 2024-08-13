@@ -1,0 +1,187 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Tifo letingatsatselwana</ion-title>
+    <ion-title style="font-size: 0.625rem">NCD Screening</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Water In Take<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Water In Take<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="WaterIntake">
+            <ion-select-option *ngFor="let status of waterInTakeArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['WaterIntake'].invalid && form.controls['WaterIntake'].touched) ||
+              (form.controls['WaterIntake'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Breathing Difficulty<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Breathing Difficulty<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="BreathingDifficulty">
+            <ion-select-option *ngFor="let status of breathingDifficultyArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['BreathingDifficulty'].invalid && form.controls['BreathingDifficulty'].touched) ||
+              (form.controls['BreathingDifficulty'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Exercise<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Exercise<span style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="Exercise">
+            <ion-select-option *ngFor="let status of exerciseArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['Exercise'].invalid && form.controls['Exercise'].touched) ||
+              (form.controls['Exercise'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Heart Rate Raising Activity<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Heart Rate Raising Activity<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="HeartRateRaisingActivity">
+            <ion-select-option *ngFor="let status of heartRateRaisingActivityArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['HeartRateRaisingActivity'].invalid &&
+                form.controls['HeartRateRaisingActivity'].touched) ||
+              (form.controls['HeartRateRaisingActivity'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Vegetable Consumption</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Vegetable Consumption</ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="VegetableConsumption">
+            <ion-select-option *ngFor="let status of vegetableConsumptionArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Fruit Consumption</ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Fruit Consumption</ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="FruitConsumption">
+            <ion-select-option *ngFor="let status of fruitConsumptionArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Salt Intake<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Salt Intake<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="SaltIntake">
+            <ion-select-option *ngFor="let status of saltIntakeArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['SaltIntake'].invalid && form.controls['SaltIntake'].touched) ||
+              (form.controls['SaltIntake'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="6">
+          <ion-label class="label-bottom">Alcohol Consumption<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Alcohol Consumption<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="AlcoholConsumption">
+            <ion-select-option *ngFor="let status of alcoholConsumptionArray" [value]="status.value">
+              {{ status.label }}</ion-select-option>
+          </ion-select>
+
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['AlcoholConsumption'].invalid && form.controls['AlcoholConsumption'].touched) ||
+              (form.controls['AlcoholConsumption'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsClientSmoking">is CLient Smoker? <br />
+          <small>is CLient Smoker?</small>
+        </ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsSweetenedFoodConsumed">is Sweetened
+          Beverages?
+          <br />
+          <small>is Sweetened Beverages?</small>
+        </ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-toggle labelPlacement="end" justify="start" formControlName="IsRefinedWheatConsumed">is Refined Wheat
+          Products? <br />
+          <small>is Refined Wheat Products?</small>
+        </ion-toggle>
+      </ion-item>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

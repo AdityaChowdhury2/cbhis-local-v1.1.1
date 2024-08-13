@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Lizinga lekudla lelijabulisako</ion-title>
+    <ion-title style="font-size: 0.625rem">Minimum Acceptable Diet</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid class="ion-padding-horizontal">
+      <ion-row>
+        <ion-col size="12">
+          <ion-label class="label-bottom">Lizinga lekudla lelijabulisako<span style="color: red">*</span></ion-label>
+          <br />
+          <ion-label style="font-size: 0.625rem; font-weight: 500">Minimum Acceptable Diet<span
+              style="color: red">*</span></ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline"
+            placeholder="Select Minimum Acceptable Diet" formControlName="MinimumAcceptableDietId">
+            <ion-select-option *ngFor="let diet of minimumAcceptableDiets" [value]="diet.Oid">
+              {{ diet.Description }}</ion-select-option>
+          </ion-select>
+          <p style="color: red; font-size: 0.75rem; margin: -1px" *ngIf="
+              (form.controls['MinimumAcceptableDietId'].invalid && form.controls['MinimumAcceptableDietId'].touched) ||
+              (form.controls['MinimumAcceptableDietId'].invalid && isValid)
+            ">
+            Required!
+          </p>
+        </ion-col>
+
+        <!-- TODO: frequency will be taken for each diet -->
+        <ion-col size="12">
+          <ion-label class="label-bottom">Kuvama</ion-label>
+          <br />
+          <ion-label style="font-size: 10px; font-weight: 500">Frequency</ion-label>
+
+          <ion-select interface="popover" toggleIcon="chevron-down-outline" fill="outline" placeholder="--Khetsa--"
+            formControlName="Frequency">
+            <ion-select-option [value]="null">--Khetsa--</ion-select-option>
+            <ion-select-option *ngFor="let option of frequencyOptionsArray" [value]="option.value">
+              {{ option.label }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <!-- <div class="custom-floating-label">
+        <label style="font-size: 1.063rem">Minimum Acceptable Diet</label>
+        <div class="content" style="padding: 10px">
+          <ion-item
+            [lines]="last ? 'none' : ''"
+            *ngFor="let option of minimumAcceptableDiets; let i = index; let last = last"
+          >
+            <ion-toggle
+              labelPlacement="end"
+              justify="start"
+              (ionChange)="handleSelectionChange($event, option.Oid)"
+              [checked]="selectedItems.includes(option.Oid)"
+              >{{ option.Description }}</ion-toggle
+            >
+        
+          </ion-item>
+        </div>
+      </div> -->
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer (saveEvent)="onSubmit()" />

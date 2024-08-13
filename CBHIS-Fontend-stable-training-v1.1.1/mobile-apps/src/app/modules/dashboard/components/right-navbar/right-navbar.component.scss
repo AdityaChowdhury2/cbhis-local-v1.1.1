@@ -1,0 +1,11 @@
+ion-buttons {
+  ion-button {
+    ion-avatar {
+      width: 100%;
+      max-height: 40px;
+      max-width: 40px;
+      min-width: 40px;
+      --border-radius: 10px;
+    }
+  }
+}

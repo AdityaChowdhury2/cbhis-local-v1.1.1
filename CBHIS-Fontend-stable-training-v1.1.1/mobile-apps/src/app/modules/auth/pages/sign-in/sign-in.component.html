@@ -1,0 +1,58 @@
+<ion-content>
+  <div class="upper-background" [style]="isKeyboardOpen ? 'margin-top: 100px; margin-bottom: 50px' : ''">
+    <div class="logo-container animate__animated animate__bounceInDown">
+      <app-logo [isKeyboardOpen]="isKeyboardOpen"></app-logo>
+      <ion-title class="ion-text-center ion-no-padding"
+        [style]="isKeyboardOpen ? 'font-size: 1.5rem; color: white' : 'color: white'">
+        CBHIS
+      </ion-title>
+    </div>
+  </div>
+
+  <div class="lower-background">
+    <form class="input-box animate__animated animate__bounceInUp animate__slow"
+      [style]="isKeyboardOpen ? 'margin-bottom: 20px;' : ''" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p style="text-align: center; margin: 5px 0; color: red; font-weight: 700;  font-size: 1.25rem;">Training App</p>
+      <ion-title class="ion-no-padding" style="padding-bottom: 25px">Ngena Lapha <br />
+        <small style="position: absolute; top: 58%; font-size: 0.875rem; font-weight: 400">Login</small>
+      </ion-title>
+
+      <div>
+        <ion-label class="label-bottom">ligama lolisebentisako</ion-label>
+        <br />
+        <ion-label style="font-size: 0.625rem; font-weight: 500">Username<span style="color: red">*</span></ion-label>
+        <ion-input fill="outline" formControlName="username" type="text"
+          [placeholder]="english ? 'Username' : 'ligama lolisebentisako'"></ion-input>
+      </div>
+      <div class="">
+        <ion-label class="label-bottom">iphasiwedi</ion-label>
+        <br />
+        <ion-label style="font-size: 0.625rem; font-weight: 500">Password<span style="color: red">*</span></ion-label>
+        <ion-input fill="outline" [type]="isShowPassword ? 'text' : 'password'" formControlName="password"
+          [placeholder]="english ? 'Password' : 'iphasiwedi'">
+          <ion-button style="min-height: 30px; height: 30px; position: relative; left: 14px" fill="clear" slot="end"
+            aria-label="Show/hide" (click)="changeShowPassword()">
+            <ion-icon *ngIf="!isShowPassword" slot="icon-only" color="primary" name="eye-outline"
+              aria-hidden="true"></ion-icon>
+            <ion-icon *ngIf="isShowPassword" slot="icon-only" color="primary" name="eye-off-outline"
+              aria-hidden="true"></ion-icon>
+          </ion-button>
+        </ion-input>
+      </div>
+      <div class="ion-margin-top sign-in-button-container">
+        <button [disabled]="form.invalid" type="submit" expand="block"
+          style="text-transform: capitalize; margin: 0 auto; width: 100%" class="custom-btn">
+          Ngena Lapha <br />
+          <small style="display: block">Login</small>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px">
+    <img src="assets/logo/country-logo.jpg" alt="" style="width: 110px; border-radius: 10px" />
+  </div>
+  <h1 style="font-size: 0.938rem; margin-top: 0px">Ministry of Health, Eswatini - All Rights Reserved</h1>
+
+  <ion-loading [isOpen]="isLoading" mode="ios" message="Loading..."></ion-loading>
+</ion-content>
